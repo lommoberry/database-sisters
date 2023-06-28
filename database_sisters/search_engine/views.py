@@ -5,4 +5,4 @@ def home(request):
     return render(request, "search_engine/home.html")
 
 def results(request):
-    return HttpResponse("results")
+    return render(request, "search_engine/results.html")
