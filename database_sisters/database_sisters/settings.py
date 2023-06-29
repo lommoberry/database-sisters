@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'django_bootstrap_icons',
+    'justPlayin.apps.JustPlayinConfig',
 ]
 
 MIDDLEWARE = [
