@@ -2,44 +2,46 @@
 {% include 'search_engine/nav.html' %}
 
 <body class="vh-100">
-    <div class="container-fluid d-flex h-75 align-items-end gap-5 justify-content-around">
-        <div class="input-group input-group-lg mb-3 gap-2">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <a class="btn btn-outline-secondary" type="button" id="button-addon2" href="{% url 'results' 'query'%}">Search</a>
-        </div>
-        <div class="input-group input-group-lg mb-3 gap-2">
-            <input type="text" class="form-control" placeholder="Filters" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="btn-group dropup">
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Filters
-                </button>
-                <ul class="dropdown-menu p-3">
-                    <li>
-                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          checkbox
-                        </label>
-                      </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            checkbox
-                        </label>
-                      </div>
-                    </li>
-                    <li>
-                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          checkbox
-                        </label>
-                      </div>
-                    </li>
-                </ul>
+  <form action="{% url 'results' %}" method="GET" class="h-75">
+    <div class="container-fluid d-flex h-100 align-items-end gap-5 justify-content-around">
+      <div class="input-group input-group-lg mb-3 gap-2">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Search">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+      <div class="input-group input-group-lg mb-3 gap-2">
+        <input type="text" class="form-control" placeholder="Filters" aria-label="Recipient's username" aria-describedby="button-addon2" readonly>
+        <div class="btn-group dropup">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Filters
+          </button>
+          <ul class="dropdown-menu p-3">
+            <li>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" id="1" name="filter">
+                <label class="form-check-label" for="1">
+                1
+                </label>
               </div>
+            </li>
+            <li>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="2" id="2" name="filter">
+                <label class="form-check-label" for="2">
+                2
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="3" id="3" name="filter">
+                <label class="form-check-label" for="3">
+                3
+                </label>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </form>
 </body>
