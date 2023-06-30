@@ -4,5 +4,12 @@ from django.http import HttpResponse
 def home(request):
     return render(request, "search_engine/home.html")
 
-def results(request, query):
+def results(request):
+
+    if request.method == 'GET':
+        searchQuery = request.GET["search"]
+        filters = request.GET.getlist("filter")
+
+        print(searchQuery)
+
     return render(request, "search_engine/results.html")
