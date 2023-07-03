@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CheckConstraint, Q
 
 '''
 project databases
@@ -14,13 +15,20 @@ TODO:
 '''
 
 
+# attributes NOT NULL by default (Null=False)
 class JOURNAL(models.Model):
-    # need to fix auto id attrib (for all tables)
-    JOURNAL_ID = models.IntegerField()
+    JOURNAL_ID = models.AutoField(primary_key=True)  # can be overridden in CL via save()
     JOURNAL_NUM_ENTRIES = models.IntegerField()
     JOURNAL_CENTURY = models.IntegerField()
     JOURNAL_TITLE = models.CharField(max_length=200)  # fix max length for all charfields later
 
+    # check that JOURNAL_NUM_ENTRIES > 0
+    class Meta:
+        constraints = [
+            CheckConstraint(
+                check=Q(JOURNAL_NUM_ENTRIES__gt=0),
+                name='check_journal_num_entries',
+            )]
 
 class COUNTRY(models.Model):
     COUNTRY_ID = models.IntegerField()
