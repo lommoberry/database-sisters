@@ -246,3 +246,6 @@ cur.executescript("""
     VALUES (4, 4);
 
 """)
+
+con.commit()
+
