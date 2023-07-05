@@ -7,9 +7,12 @@ def home(request):
 def results(request):
 
     if request.method == 'GET':
-        searchQuery = request.GET["search"]
+        searchType = request.GET["searchtype"]
         filters = request.GET.getlist("filter")
 
-        print(searchQuery)
+        print(searchType)
+
+        for entry in filters:
+            print(entry + " " + request.GET[entry])
 
     return render(request, "search_engine/results.html")
