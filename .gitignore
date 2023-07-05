@@ -5,5 +5,5 @@
 #django 
 *.log
 *.pot
-*.pyc
+**/database_sisters/*.pyc
 __pycache__
