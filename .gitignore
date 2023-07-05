@@ -6,4 +6,3 @@
 *.log
 *.pot
 **/database_sisters/*.pyc
-**/database_sisters/__pycache__
