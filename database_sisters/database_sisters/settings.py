@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'django_bootstrap_icons',
     'justPlayin.apps.JustplayinConfig',
+    'addJournal.apps.AddJournalConfig'
 ]
 
 MIDDLEWARE = [
