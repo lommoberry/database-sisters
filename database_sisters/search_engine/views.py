@@ -10,23 +10,66 @@ def results(request):
     if request.method == 'GET':
         table = request.GET["searchtype"]
         filters = request.GET.getlist("filter")
-        filtermap = {}
-
-        tables = ["journal", "journal_entry", "author", "sketch"]
+        filter_map = {}
 
         for filter in filters:
-            filtermap[filter] = request.GET[filter]
+            filter_map[filter] = request.GET[filter]
 
-        print(filtermap)
+        if table == "journal":
+            results = journal_request(filter_map)
+        
+        elif table == "journal_entry":
+            results = journal_entry_request(filter_map)
 
-        if table not in tables:
+        elif table =="author":
+            results = author_request(filter_map)
+
+        elif table == "sketch":
+            results = sketch_request(filter_map)
+
+        else:
             return render(request, "search_engine/results.html")    # illegal get request
-
-        with connection.cursor() as cursor:
-
-            query = "SELECT * FROM " + table
-
-            cursor.execute(query)
-            results = cursor.fetchall()
-
+        
     return render(request, "search_engine/results.html", {"results": results})
+
+
+def journal_request(filters):
+    with connection.cursor() as cursor:
+
+        query = "SELECT * FROM journal" 
+
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+    return results
+
+def journal_entry_request(filters):
+    with connection.cursor() as cursor:
+
+        query = "SELECT * FROM journal_entry"
+
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+    return results
+    
+def author_request(filters):
+    with connection.cursor() as cursor:
+
+        query = "SELECT * FROM author" 
+
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+    return results
+
+def sketch_request(filters):
+    with connection.cursor() as cursor:
+
+        query = "SELECT * FROM sketch"
+
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+    return results
+
