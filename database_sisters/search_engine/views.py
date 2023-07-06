@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db import connection
 
 def home(request):
     return render(request, "search_engine/home.html")
@@ -7,12 +8,25 @@ def home(request):
 def results(request):
 
     if request.method == 'GET':
-        searchType = request.GET["searchtype"]
+        table = request.GET["searchtype"]
         filters = request.GET.getlist("filter")
+        filtermap = {}
 
-        print(searchType)
+        tables = ["journal", "journal_entry", "author", "sketch"]
 
-        for entry in filters:
-            print(entry + " " + request.GET[entry])
+        for filter in filters:
+            filtermap[filter] = request.GET[filter]
 
-    return render(request, "search_engine/results.html")
+        print(filtermap)
+
+        if table not in tables:
+            return render(request, "search_engine/results.html")    # illegal get request
+
+        with connection.cursor() as cursor:
+
+            query = "SELECT * FROM " + table
+
+            cursor.execute(query)
+            results = cursor.fetchall()
+
+    return render(request, "search_engine/results.html", {"results": results})
