@@ -1,0 +1,78 @@
+Index: database_sisters/addJournal/apps.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_sisters/addJournal/apps.py b/database_sisters/addJournal/apps.py
+new file mode 100644
+--- /dev/null	(date 1688574850643)
++++ b/database_sisters/addJournal/apps.py	(date 1688574850643)
+@@ -0,0 +1,6 @@
++from django.apps import AppConfig
++
++
++class AddjournalConfig(AppConfig):
++    default_auto_field = 'django.db.models.BigAutoField'
++    name = 'addJournal'
+Index: database_sisters/addJournal/admin.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_sisters/addJournal/admin.py b/database_sisters/addJournal/admin.py
+new file mode 100644
+--- /dev/null	(date 1688574850599)
++++ b/database_sisters/addJournal/admin.py	(date 1688574850599)
+@@ -0,0 +1,3 @@
++from django.contrib import admin
++
++# Register your models here.
+Index: database_sisters/addJournal/models.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_sisters/addJournal/models.py b/database_sisters/addJournal/models.py
+new file mode 100644
+--- /dev/null	(date 1688658824536)
++++ b/database_sisters/addJournal/models.py	(date 1688658824536)
+@@ -0,0 +1,9 @@
++from django.db import models
++
++# Create your models here.
++class Journal(models.Model):
++    Journal_Title = models.CharField(max_length=100)
++    Num_Entries = models.IntegerField()
++    Century = models.CharField(max_length=2) #ex.) 19
++    Journal_ID = models.IntegerField(primary_key=True)
++
+Index: database_sisters/addJournal/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_sisters/addJournal/views.py b/database_sisters/addJournal/views.py
+new file mode 100644
+--- /dev/null	(date 1688574850731)
++++ b/database_sisters/addJournal/views.py	(date 1688574850731)
+@@ -0,0 +1,3 @@
++from django.shortcuts import render
++
++# Create your views here.
+Index: database_sisters/addJournal/tests.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/database_sisters/addJournal/tests.py b/database_sisters/addJournal/tests.py
+new file mode 100644
+--- /dev/null	(date 1688574850705)
++++ b/database_sisters/addJournal/tests.py	(date 1688574850705)
+@@ -0,0 +1,3 @@
++from django.test import TestCase
++
++# Create your tests here.
+diff --git a/database_sisters/addJournal/migrations/__init__.py b/database_sisters/addJournal/migrations/__init__.py
+new file mode 100644
+diff --git a/database_sisters/addJournal/__init__.py b/database_sisters/addJournal/__init__.py
+new file mode 100644
