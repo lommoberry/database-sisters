@@ -1,5 +1,19 @@
 {% include 'search_engine/nav.html' %}
 
 <body class="vh-100">
-    <h1 class="text-center">result page</h1>
+    <div class="container-fluid p-3 text-center">
+        {% if not results %}
+        <h1>No Results found :(</h1>
+        <a href="{% url 'home' %}">Return to home page</a>
+
+        {% else %}
+        <h1 class="text-center">Results</h1>
+        <ul class="list-group list-group-flush">
+
+            {% for row in results%}
+            <li class="list-group-item">{{ row }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
 </body>
