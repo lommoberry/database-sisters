@@ -8,12 +8,24 @@
 
         {% else %}
         <h1 class="text-center">Results</h1>
-        <ul class="list-group list-group-flush">
-
-            {% for row in results%}
-            <li class="list-group-item">{{ row }}</li>
-            {% endfor %}
-        </ul>
+        <table class="table table-light">
+            <thead>
+              <tr>
+                {% for col in cols %}
+                    <th scope="col">{{col}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+                {% for row in results%}
+                <tr>
+                    {% for info in row %}
+                        <td>{{info}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
         {% endif %}
     </div>
 </body>

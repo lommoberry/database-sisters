@@ -16,47 +16,53 @@ def results(request):
             filter_map[filter] = request.GET[filter]
 
         if table == "journal":
-            results = journal_request(filter_map)
+            results, cols = journal_request(filter_map)
         
         elif table == "journal_entry":
-            results = journal_entry_request(filter_map)
+            results, cols = journal_entry_request(filter_map)
 
         elif table =="author":
-            results = author_request(filter_map)
+            results, cols = author_request(filter_map)
 
         elif table == "sketch":
-            results = sketch_request(filter_map)
+            results, cols = sketch_request(filter_map)
 
         else:
             return render(request, "search_engine/results.html")    # illegal get request
         
-    return render(request, "search_engine/results.html", {"results": results})
+    return render(request, "search_engine/results.html", {"results": results,  "cols": cols})
 
 
 def journal_request(filters):
     with connection.cursor() as cursor:
+
+        cols = ["id", "num_entries", "century", "title"]
 
         query = "SELECT * FROM journal" 
 
         cursor.execute(query)
         results = cursor.fetchall()
 
-    return results
+    return results, cols
 
 def journal_entry_request(filters):
     with connection.cursor() as cursor:
+
+        cols = ["entry_id", "journal_id", "text", "date_full", "sketch_id"]
+
 
         query = "SELECT * FROM journal_entry"
 
         cursor.execute(query)
         results = cursor.fetchall()
 
-    return results
+    return results, cols
     
 def author_request(filters):
     with connection.cursor() as cursor:
 
         params = []
+        cols = ["First", "Last", "Country", "Journal"]
 
         query = """SELECT author.auth_fname, author.auth_lname, country.country_name, journal.journal_title
                     FROM author_journal 
@@ -80,15 +86,17 @@ def author_request(filters):
         cursor.execute(query, params)
         results = cursor.fetchall()
 
-    return results
+    return results, cols
 
 def sketch_request(filters):
     with connection.cursor() as cursor:
+
+        cols = ["sketch_id", "sketch"]
 
         query = "SELECT * FROM sketch"
 
         cursor.execute(query)
         results = cursor.fetchall()
 
-    return results
+    return results, cols
 
