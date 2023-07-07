@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import connection
 # from .forms import YourForm
@@ -22,7 +22,7 @@ def add_data(request):
         countrytravel = request.POST.get('auth_lname')
         century = request.POST.get('auth_lname')
         file = request.POST.get('auth_lname')
-
+    print("did something")
 #parse journal txt create num entries and journal entries and site etc
     with connection.cursor() as cursor:
         sql = "INSERT INTO journal (journalTitle, auth_fname, countryorigin, century) VALUES (%s, %s)"
