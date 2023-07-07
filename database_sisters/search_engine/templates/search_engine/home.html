@@ -2,46 +2,228 @@
 {% include 'search_engine/nav.html' %}
 
 <body class="vh-100">
-  <form action="{% url 'results' %}" method="GET" class="h-75">
-    <div class="container-fluid d-flex h-100 align-items-end gap-5 justify-content-around">
-      <div class="input-group input-group-lg mb-3 gap-2">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Search">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+  <form action="{% url 'results' %}" method="GET" class="">
+    <div class="container-fluid d-flex h-100 align-items-start gap-1 justify-content-around">
+      <div class="p-3">
+        <select class="form-select p-3" aria-label="Default select example" onchange="selectChange()" name="searchtype" id="searchtype">
+          <option selected value="journalEntry">Journal Entry</option>
+          <option value="journal">Journal</option>
+          <option value="author">Author</option>
+          <option value="sketch">Sketch</option>
+        </select>
       </div>
-      <div class="input-group input-group-lg mb-3 gap-2">
-        <input type="text" class="form-control" placeholder="Filters" aria-label="Recipient's username" aria-describedby="button-addon2" readonly>
-        <div class="btn-group dropup">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Filters
-          </button>
-          <ul class="dropdown-menu p-3">
-            <li>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="1" name="filter">
-                <label class="form-check-label" for="1">
-                1
-                </label>
+      <div class="flex-grow-1 p-3">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Search By:
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body p-0">
+                <ul class="list-group">
+                  <li class="list-group-item" id="journal_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="journal" id="journal" name="filter" onclick="boxFunction('journal')">
+                      <label class="form-check-label" for="journal">
+                      Journal
+                      </label>
+                      <input type="text" name="journal" id="journal-text" class="form-control w-50" placeholder="Journal" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="name_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="name" id="name" name="filter" onclick="boxFunction('name')">
+                      <label class="form-check-label" for="name">
+                      Name
+                      </label>
+                      <input type="text" name="name" id="name-text" class="form-control w-50" placeholder="Name" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="title_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="title" id="title" name="filter" onclick="boxFunction('title')">
+                      <label class="form-check-label" for="title">
+                      Title
+                      </label>
+                      <input type="text" name="title" id="title-text" class="form-control w-50" placeholder="Title" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="author_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="author" id="author" name="filter" onclick="boxFunction('author')">
+                      <label class="form-check-label" for="author">
+                      Author
+                      </label>
+                      <input type="text" name="date" id="author-text" class="form-control w-50" placeholder="Author" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="century_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="century" id="century" name="filter" onclick="boxFunction('century')">
+                      <label class="form-check-label" for="century">
+                      Century
+                      </label>
+                      <input type="text" name="century" id="century-text" class="form-control w-50" placeholder="Century" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="year_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="year" id="year" name="filter" onclick="boxFunction('year')">
+                      <label class="form-check-label" for="year">
+                      Year
+                      </label>
+                      <input type="text" name="year" id="year-text" class="form-control w-50" placeholder="Year" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="month_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="month" id="month" name="filter" onclick="boxFunction('month')">
+                      <label class="form-check-label" for="month">
+                      Month
+                      </label>
+                      <input type="text" name="month" id="month-text" class="form-control w-50" placeholder="Month" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="numEntries_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="numEntries" id="numEntries" name="filter" onclick="boxFunction('numEntries')">
+                      <label class="form-check-label" for="numEntries">
+                      Number of Entries
+                      </label>
+                      <input type="text" name="numEntries" id="numEntries-text" class="form-control w-50" placeholder="Number of Entries" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="site_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="site" id="site" name="filter" onclick="boxFunction('site')">
+                      <label class="form-check-label" for="site">
+                      Site
+                      </label>
+                      <input type="text" name="site" id="site-text" class="form-control w-50" placeholder="Site" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="country_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="country" id="country" name="filter" onclick="boxFunction('country')">
+                      <label class="form-check-label" for="country">
+                      Country
+                      </label>
+                      <input type="text" name="country" id="country-text" class="form-control w-50" placeholder="Country" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="origincountry_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="origincountry" id="origincountry" name="filter" onclick="boxFunction('origincountry')">
+                      <label class="form-check-label" for="origincountry">
+                      Origin country
+                      </label>
+                      <input type="text" name="origincountry" id="origincountry-text" class="form-control w-50" placeholder="Origin Country" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="visitedcountry_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="visitedcountry" id="visitedcountry" name="filter" onclick="boxFunction('visitedcountry')">
+                      <label class="form-check-label" for="visitedcountry">
+                      Country Visited
+                      </label>
+                      <input type="text" name="visitedcountry" id="visitedcountry-text" class="form-control w-50" placeholder="Country Visited" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="sketch_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="sketch" id="sketch" name="filter" onclick="boxFunction('sketch')">
+                      <label class="form-check-label" for="sketch">
+                      Sketch
+                      </label>
+                      <input type="text" name="sketch" id="sketch-text" class="form-control w-50" placeholder="Sketch" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="date_li">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="date" id="date" name="filter" onclick="boxFunction('date')">
+                      <label class="form-check-label" for="date">
+                      Date
+                      </label>
+                      <input type="text" name="date" id="date-text" class="form-control w-50" placeholder="Date" disabled>
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="2" id="2" name="filter">
-                <label class="form-check-label" for="2">
-                2
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="3" id="3" name="filter">
-                <label class="form-check-label" for="3">
-                3
-                </label>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="p-3">
+        <button class="btn btn-light btn-outline-secondary p-3" type="submit">Search</button>
       </div>
     </div>
   </form>
 </body>
+
+<script>
+  function boxFunction(id) {
+  // Get the checkbox
+  var checkBox = document.getElementById(id);
+  // Get the output text
+  var inputBox = document.getElementById(id + "-text");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    inputBox.disabled = false
+  } else {
+    inputBox.disabled = true;
+    inputBox.value = "";
+  }
+}
+
+  function selectChange() {
+    searchtype = document.getElementById("searchtype");
+    value = searchtype.value;
+    checkboxes = document.getElementsByName('filter');
+
+    for (const checkbox of checkboxes) {
+      checkbox.checked = false;
+      document.getElementById(checkbox.id + "-text").disabled = true;
+    }
+
+    list_elements = document.getElementsByTagName('li');
+    
+    if(value === "journal") {
+      for (const e of list_elements) {
+        if(e.id === "journal_li" || e.id === "name_li" || e.id === "site_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id === "sketch_li" || e.id === "date_li") {
+          e.style.display = 'none';
+        }
+        else e.style.display = 'block';
+      }
+    }
+
+    else if( value === "journalEntry") {
+      for (const e of list_elements) {
+        if(e.id === "name_li" || e.id === "numEntries_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id === "title_li") {
+          e.style.display = 'none';
+        }
+        else e.style.display = 'block';
+      }
+    }
+
+    else if(value === "author") {
+      for (const e of list_elements) {
+        if(e.id === "title_li" || e.id === "author_li" || e.id === "century_li" || e.id === "year_li" || e.id === "month_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "country_li" || e.id === "sketch_li") {
+          e.style.display = 'none';
+        }
+        else e.style.display = 'block';
+      }
+    }
+
+    else {
+      for (const e of list_elements) {
+        if(e.id === "name_li" || e.id === "numEntries_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id ==="title_li") {
+          e.style.display = 'none';
+        }
+        else e.style.display = 'block';
+      }
+  }
+}
+</script>
