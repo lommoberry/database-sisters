@@ -25,20 +25,29 @@
                 <ul class="list-group">
                   <li class="list-group-item" id="journal_li">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="journal" id="journal" name="filter" onclick="boxFunction('journal')">
+                      <input class="form-check-input" type="checkbox" value="journal_title" id="journal" name="filter" onclick="boxFunction('journal')">
                       <label class="form-check-label" for="journal">
                       Journal
                       </label>
-                      <input type="text" name="journal" id="journal-text" class="form-control w-50" placeholder="Journal" disabled>
+                      <input type="text" name="journal_title" id="journal-text" class="form-control w-50" placeholder="Journal" disabled>
                     </div>
                   </li>
-                  <li class="list-group-item" id="name_li" style="display: none;">
+                  <li class="list-group-item" id="fname_li" style="display: none;">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="name" id="name" name="filter" onclick="boxFunction('name')">
-                      <label class="form-check-label" for="name">
-                      Name
+                      <input class="form-check-input" type="checkbox" value="auth_fname" id="fname" name="filter" onclick="boxFunction('fname')">
+                      <label class="form-check-label" for="fname">
+                      First Name
                       </label>
-                      <input type="text" name="name" id="name-text" class="form-control w-50" placeholder="Name" disabled>
+                      <input type="text" name="auth_fname" id="fname-text" class="form-control w-50" placeholder="First Name" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="lname_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="auth_lname" id="lname" name="filter" onclick="boxFunction('lname')">
+                      <label class="form-check-label" for="lname">
+                      Last Name
+                      </label>
+                      <input type="text" name="auth_lname" id="lname-text" class="form-control w-50" placeholder="Last Name" disabled>
                     </div>
                   </li>
                   <li class="list-group-item" id="title_li" style="display: none;">
@@ -119,29 +128,11 @@
                   </li>
                   <li class="list-group-item" id="country_li">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="country" id="country" name="filter" onclick="boxFunction('country')">
+                      <input class="form-check-input" type="checkbox" value="country_name" id="country" name="filter" onclick="boxFunction('country')">
                       <label class="form-check-label" for="country">
                       Country
                       </label>
-                      <input type="text" name="country" id="country-text" class="form-control w-50" placeholder="Country" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="origincountry_li" style="display: none;">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="origincountry" id="origincountry" name="filter" onclick="boxFunction('origincountry')">
-                      <label class="form-check-label" for="origincountry">
-                      Origin country
-                      </label>
-                      <input type="text" name="origincountry" id="origincountry-text" class="form-control w-50" placeholder="Origin Country" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="visitedcountry_li" style="display: none;">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="visitedcountry" id="visitedcountry" name="filter" onclick="boxFunction('visitedcountry')">
-                      <label class="form-check-label" for="visitedcountry">
-                      Country Visited
-                      </label>
-                      <input type="text" name="visitedcountry" id="visitedcountry-text" class="form-control w-50" placeholder="Country Visited" disabled>
+                      <input type="text" name="country_name" id="country-text" class="form-control w-50" placeholder="Country" disabled>
                     </div>
                   </li>
                   <li class="list-group-item" id="sketch_li">
@@ -184,9 +175,6 @@
 
   let filterbox = document.getElementById("filterbox");
 
-  console.log(filterbox)
-
-
   // If the checkbox is checked, display the output text
   if (checkBox.checked === true){
     inputBox.disabled = false
@@ -217,7 +205,7 @@
     
     if(value === "journal") {
       for (const e of list_elements) {
-        if(e.id === "journal_li" || e.id === "name_li" || e.id === "site_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id === "sketch_li" || e.id === "date_li") {
+        if(e.id === "journal_li" || e.id === "fname_li" || e.id === "lname_li"|| e.id === "site_li"  || e.id === "sketch_li" || e.id === "date_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -226,7 +214,7 @@
 
     else if( value === "journal_entry") {
       for (const e of list_elements) {
-        if(e.id === "name_li" || e.id === "numEntries_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id === "title_li") {
+        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li" || e.id === "title_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -235,7 +223,7 @@
 
     else if(value === "author") {
       for (const e of list_elements) {
-        if(e.id === "title_li" || e.id === "author_li" || e.id === "century_li" || e.id === "year_li" || e.id === "month_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "country_li" || e.id === "sketch_li") {
+        if(e.id === "title_li" || e.id === "author_li" || e.id === "century_li" || e.id === "site_li" || e.id === "year_li" || e.id === "month_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "sketch_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -244,7 +232,7 @@
 
     else {
       for (const e of list_elements) {
-        if(e.id === "name_li" || e.id === "numEntries_li" || e.id === "origincountry_li" || e.id === "visitedcountry_li" || e.id ==="title_li") {
+        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li" || e.id ==="title_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';

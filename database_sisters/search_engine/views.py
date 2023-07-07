@@ -56,9 +56,29 @@ def journal_entry_request(filters):
 def author_request(filters):
     with connection.cursor() as cursor:
 
-        query = "SELECT * FROM author" 
+        params = []
 
-        cursor.execute(query)
+        query = """SELECT author.auth_fname, author.auth_lname, country.country_name, journal.journal_title
+                    FROM author_journal 
+                    LEFT JOIN author 
+                    ON author_journal.auth_id = author.auth_id
+                    LEFT JOIN journal
+                    ON author_journal.journal_id = journal.journal_id
+                    LEFT JOIN country
+                    ON country.country_id = author.country_id"""
+        
+        if filters:
+            query += " WHERE"
+
+        for key, value in filters.items():
+            query += " " + key + " LIKE %s AND"
+            params.append(value)
+
+        if query.endswith("AND"):
+            query = query[:-3]
+            print(query)
+
+        cursor.execute(query, params)
         results = cursor.fetchall()
 
     return results
