@@ -76,7 +76,6 @@ def author_request(filters):
 
         if query.endswith("AND"):
             query = query[:-3]
-            print(query)
 
         cursor.execute(query, params)
         results = cursor.fetchall()
