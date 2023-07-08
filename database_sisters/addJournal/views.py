@@ -5,7 +5,7 @@ from django.db import connection
 
 # Create your views here.
 def add_journal_request(request):
-    return render(request, "editingdatabase/adding.html")
+    return render(request, "templates/editingdatabase/adding.html")
 
 
 def add_data(request):
@@ -18,14 +18,15 @@ def add_data(request):
     #     form = YourForm()
         journalTitle = request.POST.get('journalTitle')
         auth_fname = request.POST.get('auth_fname')
-        countryorigin = request.POST.get('auth_lname')
-        countrytravel = request.POST.get('auth_lname')
-        century = request.POST.get('auth_lname')
-        file = request.POST.get('auth_lname')
-    print("did something")
+        auth_lname = request.POST.get('auth_lname')
+        countryorigin = request.POST.get('countryorigin')
+        countrytravel = request.POST.get('countrytravel')
+        century = request.POST.get('century')
+        file = request.POST.get('file')
+    # print("did something")
 #parse journal txt create num entries and journal entries and site etc
     with connection.cursor() as cursor:
-        sql = "INSERT INTO journal (journalTitle, auth_fname, countryorigin, century) VALUES (%s, %s)"
-        cursor.execute(sql, [journalTitle, auth_fname])
-    return redirect('editingdatabase/success.html')
+        sql = "INSERT INTO journal (journalTitle, auth_fname,auth_lname, countryorigin, century) VALUES (%s, %s)"
+        cursor.execute(sql, [journalTitle, auth_fname,auth_lname,countryorigin,century])
+    return redirect('templates/editingdatabase/success.html')
     return render(request, 'adding.html', {'form': form})
