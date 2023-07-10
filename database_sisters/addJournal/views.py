@@ -8,6 +8,9 @@ from textParser import parseFile
 def add_journal_request(request):
     return render(request, "templates/editingdatabase/adding.html")
 
+def entry_parser():
+    #make entry, site, site entry, sketch, date, date_entry
+    pass
 
 def add_data(request):
     if request.method == 'POST':
@@ -25,9 +28,25 @@ def add_data(request):
         century = request.POST.get('century')
         file = request.POST.get('file')
     # print("did something")
+
+    #make everything upper case
 #parse journal txt create num entries and journal entries and site etc
     with connection.cursor() as cursor:
-        sql = "INSERT INTO journal (journalTitle, auth_fname,auth_lname, countryorigin, century) VALUES (%s, %s)"
-        cursor.execute(sql, [journalTitle, auth_fname,auth_lname,countryorigin,century])
+        #select exists(select * from table) returns 1 if exists
+        #execute
+        #result = cursor.fetchone()[0]
+        #if result ==1 etc
+        sql = "INSERT INTO journal (journalTitle, num_entries, century) VALUES (%s, %s)"
+        cursor.execute(sql, [journalTitle, num_entries,century])
+        #author
+        #country
+        #journal country
+        sql = "INSERT INTO author-journal ("
+
     return redirect('templates/editingdatabase/success.html')
     return render(request, 'adding.html', {'form': form})
+
+
+#close cursor
+#close connection
+#but when?

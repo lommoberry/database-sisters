@@ -81,6 +81,13 @@ hr {
   width: 50%;
   margin-left: 10px;
 }
+.files {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+  vertical-align: top;
+  margin-top: 20px;
+}
 
 .input-field {
   display: inline-block;
@@ -186,6 +193,11 @@ footer p {
     float: left;
     margin-left: -10px;
   }
+   .files {
+    width: 100%;
+    text-align: left;
+  }
+
   .input-field {
     width: 100%;
   }

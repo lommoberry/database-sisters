@@ -68,13 +68,13 @@
                  placeholder="Enter Journal Title" required autofocus></div>
 
          <div class="labels">
-          <label id="auth_fname-label" for="auth_fname">* Email</label></div>
+          <label id="auth_fname-label" for="auth_fname">* Author's First Name</label></div>
         <div class="input-tab">
           <input class="input-field" type="text" id="auth_fname" name="auth_fname" placeholder="Enter First Name"
                  required></div>
 
          <div class="labels">
-          <label id="auth_lname-label" for="auth_lname">* Age</label></div>
+          <label id="auth_lname-label" for="auth_lname">* Author's Last Name</label></div>
         <div class="input-tab">
           <input class="input-field" type="text" id="auth_lname" name="auth_lname" placeholder="Enter Last Name"
                  required></div>
@@ -86,17 +86,17 @@
           <input type="checkbox" name="18th" value="18th">18th<br>
           <input type="checkbox" name="19th" value="19th">19th<br>
           <input type="checkbox" name="other" value="other">Other
-            <input type="text" id="other" name="other" placeholder="example: 17"><br>
+            <input type="number" id="other" name="other" placeholder="example: 17"><br>
             <br>
         </div>
 
 
         <div class="labels">
-            <label for="myCheckbox">* Select Journal File<br>(.txt format or .xlsx format only)</label>
+            <label for="myCheckbox">* Select Journal File Type</label>
         </div>
           <div class="input-tab">
           <input type="checkbox" name="filetype" value="txt"
-                 onclick="handleCheckboxClick(this)">.txt(text file) *automatic text parse might not be
+                 onclick="handleCheckboxClick(this); toggleDropdown()">.txt(text file) *automatic text parse might not be
               accurate<br>
           <input type="checkbox" name="filetype" id = filetype  value="xlsx"
                  onclick="handleCheckboxClick(this); toggleDropdown()">.xlsx(excel) *each row is a journal entry
@@ -120,8 +120,10 @@
             <br>
           </div>
 
-
-        <div class="files">
+        <div class="labels">
+            <label>* Select Journal File<br>(.txt format or .xlsx format only)</label>
+        </div>
+        <div class="input-tab">
         <input type="file" id="file" name="file"> <br>
         </div>
 

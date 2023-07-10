@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered website adding.html">
+      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/views.py" afterDir="false" />
@@ -56,7 +58,28 @@
       <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.blah">
+    <configuration name="blah" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="database-sisters" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_sisters/justPlayin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="textParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="database-sisters" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,6 +103,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.blah" />
         <item itemvalue="Python.textParser" />
       </list>
     </recent_temporary>
@@ -170,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688781282919</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="altered website adding.html">
+      <created>1689007800447</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689007800447</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
