@@ -32,24 +32,6 @@
                       <input type="text" name="journal_title" id="journal-text" class="form-control w-50" placeholder="Journal" disabled>
                     </div>
                   </li>
-                  <li class="list-group-item" id="fname_li" style="display: none;">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="auth_fname" id="fname" name="filter" onclick="boxFunction('fname')">
-                      <label class="form-check-label" for="fname">
-                      First Name
-                      </label>
-                      <input type="text" name="auth_fname" id="fname-text" class="form-control w-50" placeholder="First Name" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="lname_li" style="display: none;">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="auth_lname" id="lname" name="filter" onclick="boxFunction('lname')">
-                      <label class="form-check-label" for="lname">
-                      Last Name
-                      </label>
-                      <input type="text" name="auth_lname" id="lname-text" class="form-control w-50" placeholder="Last Name" disabled>
-                    </div>
-                  </li>
                   <li class="list-group-item" id="title_li" style="display: none;">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="title" id="title" name="filter" onclick="boxFunction('title')">
@@ -59,13 +41,22 @@
                       <input type="text" name="title" id="title-text" class="form-control w-50" placeholder="Title" disabled>
                     </div>
                   </li>
-                  <li class="list-group-item" id="author_li">
+                  <li class="list-group-item" id="fname_li" style="display: none;">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="author" id="author" name="filter" onclick="boxFunction('author')">
-                      <label class="form-check-label" for="author">
-                      Author
+                      <input class="form-check-input" type="checkbox" value="auth_fname" id="fname" name="filter" onclick="boxFunction('fname')">
+                      <label class="form-check-label" for="fname">
+                      Author First Name
                       </label>
-                      <input type="text" name="author" id="author-text" class="form-control w-50" placeholder="Author" disabled>
+                      <input type="text" name="auth_fname" id="fname-text" class="form-control w-50" placeholder="First Name" disabled>
+                    </div>
+                  </li>
+                  <li class="list-group-item" id="lname_li" style="display: none;">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="auth_lname" id="lname" name="filter" onclick="boxFunction('lname')">
+                      <label class="form-check-label" for="lname">
+                      Author Last Name
+                      </label>
+                      <input type="text" name="auth_lname" id="lname-text" class="form-control w-50" placeholder="Last Name" disabled>
                     </div>
                   </li>
                   <li class="list-group-item" id="century_li">
@@ -75,37 +66,6 @@
                       Century
                       </label>
                       <input type="number" name="century" id="century-text" class="form-control w-50" min="1" max="21" placeholder="00" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="year_li">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="year" id="year" name="filter" onclick="boxFunction('year')">
-                      <label class="form-check-label" for="year">
-                      Year
-                      </label>
-                      <input type="numer" name="year" id="year-text" class="form-control w-50" min="0" max="2000" placeholder="0000" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="month_li">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="month" id="month" name="filter" onclick="boxFunction('month')">
-                      <label class="form-check-label" for="month">
-                      Month
-                      </label>
-                      <select id="month-text" name="month" class="form-select w-50" disabled>
-                        <option>January</option>
-                        <option>February</option>
-                        <option>March</option>
-                        <option>April</option>
-                        <option>May</option>
-                        <option>June</option>
-                        <option>July</option>
-                        <option>August</option>
-                        <option>September</option>
-                        <option>October</option>
-                        <option>November</option>
-                        <option>December</option>
-                      </select>
                     </div>
                   </li>
                   <li class="list-group-item" id="numEntries_li" style="display: none;">
@@ -205,7 +165,7 @@
     
     if(value === "journal") {
       for (const e of list_elements) {
-        if(e.id === "journal_li" || e.id === "fname_li" || e.id === "lname_li"|| e.id === "site_li"  || e.id === "sketch_li" || e.id === "date_li") {
+        if(e.id === "journal_li" || e.id === "site_li"  || e.id === "sketch_li" || e.id === "date_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -223,7 +183,7 @@
 
     else if(value === "author") {
       for (const e of list_elements) {
-        if(e.id === "title_li" || e.id === "author_li" || e.id === "century_li" || e.id === "site_li" || e.id === "year_li" || e.id === "month_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "sketch_li") {
+        if(e.id === "title_li" || e.id === "century_li" || e.id === "site_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "sketch_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
