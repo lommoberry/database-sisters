@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered website adding.html">
-      <change afterPath="$PROJECT_DIR$/database_sisters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/addJournal/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/addJournal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/database_sisters/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/database_sisters/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -168,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688759556771</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="altered website adding.html">
+      <created>1688781282919</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688781282919</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">

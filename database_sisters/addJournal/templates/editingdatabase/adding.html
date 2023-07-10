@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Journal</title>
-        <link rel="stylesheet" href="../../static/style.css">
+    <link rel="stylesheet" href="../../static/style.css">
+    <script>
+      function handleCheckboxClick(checkbox) {
+        var checkboxes = document.getElementsByName("filetype");
+
+        for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] !== checkbox) {
+          checkboxes[i].checked = false;
+        }
+      }
+    }
+    function toggleDropdown() {
+      var checkbox = document.getElementById("filetype");
+      var dropdown = document.getElementById("myDropdown");
+
+      if (checkbox.checked) {
+        dropdown.style.display = "block";  // Show the dropdown
+      } else {
+        dropdown.style.display = "none";   // Hide the dropdown
+      }
+    }
+    </script>
 
 </head>
 
@@ -64,12 +85,42 @@
         <div class="input-tab">
           <input type="checkbox" name="18th" value="18th">18th<br>
           <input type="checkbox" name="19th" value="19th">19th<br>
-          <input type="checkbox" name="other" value="other">Other<br>
+          <input type="checkbox" name="other" value="other">Other
+            <input type="text" id="other" name="other" placeholder="example: 17"><br>
+            <br>
         </div>
 
+
         <div class="labels">
-            <label>* Select Journal File<br>(.txt format)</label>
+            <label for="myCheckbox">* Select Journal File<br>(.txt format or .xlsx format only)</label>
         </div>
+          <div class="input-tab">
+          <input type="checkbox" name="filetype" value="txt"
+                 onclick="handleCheckboxClick(this)">.txt(text file) *automatic text parse might not be
+              accurate<br>
+          <input type="checkbox" name="filetype" id = filetype  value="xlsx"
+                 onclick="handleCheckboxClick(this); toggleDropdown()">.xlsx(excel) *each row is a journal entry
+              file)<br>
+        </div>
+
+
+          <div class="input-tab" id="myDropdown" style="display: none;">
+    <!-- Dropdown content goes here -->
+            <input class="input-field" type="number" id="date_column" name="date_column"
+                   placeholder="dates column number *required"
+                   required><br>
+              <input class="input-field" type="number" id="sites_column" name="sites_column"
+                     placeholder="sites and cities column number"><br>
+              <input class="input-field" type="number" id="notes_column" name="notes_column"
+                     placeholder="notes column number"><br>
+              <input class="input-field" type="number" id="sketch_column" name="sketch_column"
+                     placeholder="sketches column number"><br>
+              <input class="input-field" type="number" id="entry_column" name="entry_column"
+                     placeholder="full journal entry column number"><br>
+            <br>
+          </div>
+
+
         <div class="files">
         <input type="file" id="file" name="file"> <br>
         </div>

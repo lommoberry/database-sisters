@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import connection
+from textParser import parseFile
 # from .forms import YourForm
 
 # Create your views here.
