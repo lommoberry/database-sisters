@@ -30,13 +30,14 @@ def results(request):
         else:
             return render(request, "search_engine/results.html")    # illegal get request
         
-    return render(request, "search_engine/results.html", {"results": results,  "cols": cols})
+    return render(request, "search_engine/results.html", {"results": results,  "cols": cols, "text": table=="journal_entry"})
 
 
 def journal_request(filters):
     with connection.cursor() as cursor:
 
         cols = ["Title", "First", "Last", "Century", "Number of entries", "Country"]
+        params = []
 
         query = """SELECT journal.journal_title, author.auth_fname, author.auth_lname, journal.century, journal.num_entries, country.country_name
                     FROM journal_country
@@ -47,9 +48,19 @@ def journal_request(filters):
                     LEFT JOIN author_journal
                     ON journal.journal_id=author_journal.journal_id
                     LEFT JOIN author
-                    ON author.auth_id=author_journal.auth_id;""" 
+                    ON author.auth_id=author_journal.auth_id""" 
+        
+        if filters:
+            query += " WHERE"
 
-        cursor.execute(query)
+        for key, value in filters.items():
+            query += " " + key + " LIKE %s AND"
+            params.append(value)
+
+        if query.endswith("AND"):
+            query = query[:-3] + ";"
+
+        cursor.execute(query, params)
         results = cursor.fetchall()
 
     return results, cols
@@ -57,9 +68,25 @@ def journal_request(filters):
 def journal_entry_request(filters):
     with connection.cursor() as cursor:
 
-        cols = ["entry_id", "journal_id", "text", "date_full", "sketch_id"]
+        cols = ["Journal Title", "Century", "Site", "Country", "Date", "Text"]
 
-        query = "SELECT * FROM journal_entry"
+        query = """SELECT journal.journal_title, journal.century, site.site_name, country.country_name, date.date_full, journal_entry.entry_text
+                FROM site_entry   
+                LEFT JOIN site
+                ON site_entry.site_id = site.site_id
+                LEFT JOIN journal_entry
+                ON site_entry.entry_id = journal_entry.entry_id
+                LEFT JOIN journal
+                ON journal.journal_id=journal_entry.journal_id
+                LEFT JOIN journal_country
+                ON journal.journal_id=journal_country.journal_id
+                LEFT JOIN country
+                ON journal_country.country_id=country.country_id
+                LEFT JOIN date_entry
+                ON journal_entry.entry_id=date_entry.entry_id
+                LEFT JOIN date
+                ON date.date_full=date_entry.date_full
+                """
 
         cursor.execute(query)
         results = cursor.fetchall()

@@ -18,14 +18,49 @@
             </thead>
             <tbody>
                 {% for row in results%}
+                {% if text %}
                 <tr>
+                    {% for info in row|slice:"-1" %}
+                        <td>{{info}}</td>
+                    {% endfor %}
+                    <td>
+                        <button type="button" class="btn btn-outline-secondary" id="liveToastBtn" onclick="showText('{{forloop.counter}}')">{{row|last|slice:":20"}}...</button>
+                    </td>
+
+                    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+                        <div id="liveToast_{{forloop.counter}}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                          <div class="toast-header">
+                            <strong class="me-auto">Entry from</strong>
+                            <small>{{row.4}}</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                          </div>
+                          <div class="toast-body">
+                            {{row|last}}
+                          </div>
+                        </div>
+                      </div>
+                </tr>
+                {% else %}
+                <tr">
                     {% for info in row %}
                         <td>{{info}}</td>
                     {% endfor %}
                 </tr>
+                {% endif %}
                 {% endfor %}
             </tbody>
           </table>
         {% endif %}
     </div>
 </body>
+
+<script>
+    function showText(id) {
+
+        const toast = document.getElementById('liveToast_' + id)
+
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast)
+        toastBootstrap.show()
+    }
+
+</script>

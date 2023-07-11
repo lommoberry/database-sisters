@@ -27,18 +27,9 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="journal_title" id="journal" name="filter" onclick="boxFunction('journal')">
                       <label class="form-check-label" for="journal">
-                      Journal
+                      Journal Title
                       </label>
                       <input type="text" name="journal_title" id="journal-text" class="form-control w-50" placeholder="Journal" disabled>
-                    </div>
-                  </li>
-                  <li class="list-group-item" id="title_li" style="display: none;">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="title" id="title" name="filter" onclick="boxFunction('title')">
-                      <label class="form-check-label" for="title">
-                      Title
-                      </label>
-                      <input type="text" name="title" id="title-text" class="form-control w-50" placeholder="Title" disabled>
                     </div>
                   </li>
                   <li class="list-group-item" id="fname_li" style="display: none;">
@@ -70,11 +61,11 @@
                   </li>
                   <li class="list-group-item" id="numEntries_li" style="display: none;">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="numEntries" id="numEntries" name="filter" onclick="boxFunction('numEntries')">
+                      <input class="form-check-input" type="checkbox" value="num_entries" id="numEntries" name="filter" onclick="boxFunction('numEntries')">
                       <label class="form-check-label" for="numEntries">
                       Number of Entries
                       </label>
-                      <input type="number" name="numEntries" id="numEntries-text" class="form-control w-50" placeholder="0" disabled>
+                      <input type="number" name="num_entries" id="numEntries-text" class="form-control w-50" placeholder="0" disabled>
                     </div>
                   </li>
                   <li class="list-group-item" id="site_li">
@@ -165,7 +156,7 @@
     
     if(value === "journal") {
       for (const e of list_elements) {
-        if(e.id === "journal_li" || e.id === "site_li"  || e.id === "sketch_li" || e.id === "date_li") {
+        if(e.id === "site_li"  || e.id === "sketch_li" || e.id === "date_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -174,7 +165,7 @@
 
     else if( value === "journal_entry") {
       for (const e of list_elements) {
-        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li" || e.id === "title_li") {
+        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -183,7 +174,7 @@
 
     else if(value === "author") {
       for (const e of list_elements) {
-        if(e.id === "title_li" || e.id === "century_li" || e.id === "site_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "sketch_li") {
+        if(e.id === "century_li" || e.id === "site_li" || e.id === "date_li" || e.id === "numEntries_li" || e.id === "sketch_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
@@ -192,7 +183,7 @@
 
     else {
       for (const e of list_elements) {
-        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li" || e.id ==="title_li") {
+        if(e.id === "fname_li" || e.id === "lname_li" || e.id === "numEntries_li") {
           e.style.display = 'none';
         }
         else e.style.display = 'block';
