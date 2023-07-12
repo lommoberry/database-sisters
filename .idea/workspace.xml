@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/justPlayin/3.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/justPlayin/3.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689179857120</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="altered adding Journal">
+      <created>1689193099644</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689193099644</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
