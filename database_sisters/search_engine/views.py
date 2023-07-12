@@ -71,7 +71,7 @@ def journal_entry_request(filters):
         cols = ["Journal Title", "Century", "Site", "Country", "Date", "Text"]
         params = []
 
-        query = """SELECT journal.journal_title, journal.century, site.site_name, country.country_name, date.date_full AS date, journal_entry.entry_text
+        query = """SELECT journal.journal_title, journal.century, site.site_name AS site, country.country_name, date.date_full AS date, journal_entry.entry_text
                 FROM site_entry   
                 LEFT JOIN site
                 ON site_entry.site_id = site.site_id
