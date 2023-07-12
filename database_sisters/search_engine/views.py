@@ -69,8 +69,9 @@ def journal_entry_request(filters):
     with connection.cursor() as cursor:
 
         cols = ["Journal Title", "Century", "Site", "Country", "Date", "Text"]
+        params = []
 
-        query = """SELECT journal.journal_title, journal.century, site.site_name, country.country_name, date.date_full, journal_entry.entry_text
+        query = """SELECT journal.journal_title, journal.century, site.site_name, country.country_name, date.date_full AS date, journal_entry.entry_text
                 FROM site_entry   
                 LEFT JOIN site
                 ON site_entry.site_id = site.site_id
@@ -88,7 +89,17 @@ def journal_entry_request(filters):
                 ON date.date_full=date_entry.date_full
                 """
 
-        cursor.execute(query)
+        if filters:
+            query += " WHERE"
+
+        for key, value in filters.items():
+            query += " " + key + " LIKE %s AND"
+            params.append(value)
+
+        if query.endswith("AND"):
+            query = query[:-3]
+
+        cursor.execute(query, params)
         results = cursor.fetchall()
 
     return results, cols
@@ -123,6 +134,7 @@ def author_request(filters):
 
     return results, cols
 
+# ?
 def sketch_request(filters):
     with connection.cursor() as cursor:
 

@@ -1,5 +1,14 @@
 {% include 'search_engine/nav.html' %}
 
+<style>
+    .popover {
+        max-width: 25%;
+    }
+    .popover-body {
+        font-size: medium;
+    }
+</style>
+
 <body class="vh-100">
     <div class="container-fluid p-3 text-center">
         {% if not results %}
@@ -24,21 +33,14 @@
                         <td>{{info}}</td>
                     {% endfor %}
                     <td>
-                        <button type="button" class="btn btn-outline-secondary" id="liveToastBtn" onclick="showText('{{forloop.counter}}')">{{row|last|slice:":20"}}...</button>
+                        <a tabindex="0" class="btn btn-outline-secondary text-black" 
+                        role="button" 
+                        data-bs-toggle="popover" data-bs-placement="left"
+                        data-bs-trigger="focus"
+                        data-bs-title="Entry from {{row.4}}"
+                        data-bs-content="{{row|last}}">
+                        {{row|last|slice:":20"}}...</a>
                     </td>
-
-                    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
-                        <div id="liveToast_{{forloop.counter}}" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                          <div class="toast-header">
-                            <strong class="me-auto">Entry from</strong>
-                            <small>{{row.4}}</small>
-                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                          </div>
-                          <div class="toast-body">
-                            {{row|last}}
-                          </div>
-                        </div>
-                      </div>
                 </tr>
                 {% else %}
                 <tr">
@@ -55,12 +57,18 @@
 </body>
 
 <script>
-    function showText(id) {
+    // function showText(id) {
 
-        const toast = document.getElementById('liveToast_' + id)
+    //     const toast = document.getElementById('liveToast_' + id)
 
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast)
-        toastBootstrap.show()
+    //     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast)
+    //     toastBootstrap.show()
+    // }
+
+    window.onload = () => {
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+        const popover = new bootstrap.Popover('.popover-dismiss', {trigger: 'focus'});
     }
 
 </script>
