@@ -106,11 +106,18 @@
 
           <div class="input-tab" id="myDropdown" style="display: none;">
     <!-- Dropdown content goes here -->
+              <div class="labels">
+            <label>* date should be in MM-DD-YYYY format, column numbers start at 0, so column A = 0, Column B =
+            1, etc, sites are any place that isn't the city/more specific like a lake, sketch should contain a link
+                to the image, full journal entry means the entire journal entry for that date should go there</label>
+            </div>
             <input class="input-field" type="number" id="date_column" name="date_column"
                    placeholder="dates column number *required"
                    required><br>
               <input class="input-field" type="number" id="sites_column" name="sites_column"
-                     placeholder="sites and cities column number"><br>
+                     placeholder="sites column number"><br>
+              <input class="input-field" type="number" id="city_column" name="city_column"
+                     placeholder="city column number"><br>
               <input class="input-field" type="number" id="notes_column" name="notes_column"
                      placeholder="notes column number"><br>
               <input class="input-field" type="number" id="sketch_column" name="sketch_column"

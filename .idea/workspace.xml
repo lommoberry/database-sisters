@@ -4,73 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered website adding.html">
-      <change afterPath="$PROJECT_DIR$/database_sisters/addJournal/excel_reader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/2.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/3.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.016.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.017.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.018.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.021.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.022.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.023.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.024.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.025.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.026.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.027.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.028.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.029.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.030.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.031.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.032.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.033.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.034.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.035.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.037.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.038.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.039.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.040.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DSW22.002.041.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.0028.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.018.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.021.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.022.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.023.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.024.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/DW22.001.D020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_sisters/justPlayin/example.xlsx" afterDir="false" />
+    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/textParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/justPlayin/3.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/justPlayin/3.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689025653194</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="altered adding Journal">
+      <created>1689179857120</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689179857120</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -314,6 +259,7 @@
     <MESSAGE value="dkslfns;" />
     <MESSAGE value="made addJOurnals" />
     <MESSAGE value="altered website adding.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="altered website adding.html" />
+    <MESSAGE value="altered adding Journal" />
+    <option name="LAST_COMMIT_MESSAGE" value="altered adding Journal" />
   </component>
 </project>
