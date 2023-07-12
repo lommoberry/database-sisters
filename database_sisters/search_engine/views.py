@@ -13,7 +13,12 @@ def results(request):
         filter_map = {}
 
         for filter in filters:
-            filter_map[filter] = request.GET[filter]
+            if filter == "sketch":
+                filter_map[filter] = True
+            else: 
+                filter_map[filter] = request.GET[filter]
+
+        print(filter_map)
 
         if table == "journal":
             results, cols = journal_request(filter_map)
@@ -23,9 +28,6 @@ def results(request):
 
         elif table =="author":
             results, cols = author_request(filter_map)
-
-        elif table == "sketch":
-            results, cols = sketch_request(filter_map)
 
         else:
             return render(request, "search_engine/results.html")    # illegal get request
@@ -93,8 +95,12 @@ def journal_entry_request(filters):
             query += " WHERE"
 
         for key, value in filters.items():
-            query += " " + key + " LIKE %s AND"
-            params.append(value)
+            if key == "sketch": 
+                print("sketch")
+
+            else:
+                query += " " + key + " LIKE %s AND"
+                params.append(value)
 
         if query.endswith("AND"):
             query = query[:-3]
@@ -130,19 +136,6 @@ def author_request(filters):
             query = query[:-3]
 
         cursor.execute(query, params)
-        results = cursor.fetchall()
-
-    return results, cols
-
-# ?
-def sketch_request(filters):
-    with connection.cursor() as cursor:
-
-        cols = ["sketch_id", "sketch"]
-
-        query = "SELECT * FROM sketch"
-
-        cursor.execute(query)
         results = cursor.fetchall()
 
     return results, cols

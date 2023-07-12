@@ -9,7 +9,6 @@
           <option selected value="journal_entry">Journal Entry&emsp;</option>
           <option value="journal">Journal</option>
           <option value="author">Author</option>
-          <option value="sketch">Sketch</option>
         </select>
       </div>
       <div class="flex-grow-1 p-3">
@@ -86,15 +85,15 @@
                       <input type="text" name="country_name" id="country-text" class="form-control w-50" placeholder="Country" disabled>
                     </div>
                   </li>
-                  <!-- <li class="list-group-item" id="sketch_li">
+                  <li class="list-group-item" id="sketch_li">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="sketch" id="sketch" name="filter" onclick="boxFunction('sketch')">
                       <label class="form-check-label" for="sketch">
-                      Sketch
+                      Has Sketch?
                       </label>
                       <input type="text" name="sketch" id="sketch-text" class="form-control w-50" placeholder="Sketch" disabled>
                     </div>
-                  </li> -->
+                  </li>
                   <li class="list-group-item" id="date_li">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="date" id="date" name="filter" onclick="boxFunction('date')">
@@ -128,8 +127,14 @@
 
   // If the checkbox is checked, display the output text
   if (checkBox.checked === true){
-    inputBox.disabled = false
-    filterbox.textContent += id + ", ";
+    if (checkBox.value === "sketch") {
+      filterbox.textContent += id + ", ";
+      inputBox.value = "True"
+    }
+    else {
+      inputBox.disabled = false
+      filterbox.textContent += id + ", ";
+    }
 
   } else {
     inputBox.disabled = true;
