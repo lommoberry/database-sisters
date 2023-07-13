@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered editing/deleting Journal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/addJournal/editing.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/addJournal/editing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database_sisters/addJournal" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -60,7 +59,7 @@
       <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal\templates\editingdatabase" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.blah">
+  <component name="RunManager" selected="Python.database">
     <configuration name="blah" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="database-sisters" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +73,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="database-sisters" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_sisters" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_sisters/database.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,6 +146,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.database" />
         <item itemvalue="Python.blah" />
       </list>
     </recent_temporary>
@@ -384,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689282096728</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="altered editing/deleting Journal">
+      <created>1689285564703</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1689285564703</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="UnknownFeatures">
