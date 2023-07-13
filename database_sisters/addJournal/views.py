@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import connection
 from excel_reader import runExcelReader
-# from .forms import YourForm
-
+from textParser import
 # Create your views here.
 def add_journal_request(request):
     return render(request, "templates/editingdatabase/adding.html")

@@ -54,25 +54,25 @@ def entry_parser_findSites(entry):
         string += locations[i].upper() + ", "
     return string
 
-def raw_date_cleaner(entry):
-    date_raw = entry.split('\n')[0]
-    words = word_tokenize(date_raw)
-    tagged_words = pos_tag(words)
-    date = ''
-    for i in range(len(tagged_words)):
-        if tagged_words[i][1] == 'CD':
-            date = tagged_words[i][0]
-            break
-    if date:
-        # print(date)
-        date_str = date.strip()  # Remove newline character
-        # Parse the input date string using datetime
-        parsed_date = datetime.strptime(date_str, "%B, %Y-%m-%d")
-        # Format the date as MM-DD-YYYY
-        formatted_date = parsed_date.strftime("%m-%d-%Y")
-        return formatted_date
-    else:
-        return None
+# def raw_date_cleaner(entry):
+#     date_raw = entry.split('\n')[0]
+#     words = word_tokenize(date_raw)
+#     tagged_words = pos_tag(words)
+#     date = ''
+#     for i in range(len(tagged_words)):
+#         if tagged_words[i][1] == 'CD':
+#             date = tagged_words[i][0]
+#             break
+#     if date:
+#         # print(date)
+#         date_str = date.strip()  # Remove newline character
+#         # Parse the input date string using datetime
+#         parsed_date = datetime.strptime(date_str, "%B, %Y-%m-%d")
+#         # Format the date as MM-DD-YYYY
+#         formatted_date = parsed_date.strftime("%m-%d-%Y")
+#         return formatted_date
+#     else:
+#         return None
 
 
 
