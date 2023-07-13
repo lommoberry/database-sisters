@@ -59,7 +59,8 @@
 <!--      <button type="submit">Submit</button>-->
 <!--</form>-->
     <div class="container">
-      <form id="JournalForm" method="POST">
+      <form id="JournalForm" action="{% url 'add_data' %}" method="POST">
+        {% csrf_token %}
 
          <div class="labels">
           <label id="journalTitle-label" for="journalTitle">* Journal Title</label></div>
@@ -105,7 +106,7 @@
 
 
           <div class="input-tab" id="myDropdown" style="display: none;">
-    <!-- Dropdown content goes here -->
+
               <div class="labels">
             <label>* date should be in MM-DD-YYYY format, column numbers start at 0, so column A = 0, Column B =
             1, etc, sites are any place that isn't the city/more specific like a lake, sketch should contain a link

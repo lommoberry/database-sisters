@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import connection
-from excel_reader import runExcelReader
+# from excel_reader import runExcelReader
 # from .forms import YourForm
 
 # Create your views here.
 def add_journal_request(request):
-    return render(request, "templates/editingdatabase/adding.html")
-
+    return render(request, "editingdatabase/add_journal.html")
 
 def add_data(request):
     if request.method == 'POST':
