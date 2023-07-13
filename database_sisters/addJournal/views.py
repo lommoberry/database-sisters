@@ -4,7 +4,7 @@ from django.db import connection
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
-from database_sisters.addJournal.forms import DocumentForm
+# from database_sisters.addJournal.forms import DocumentForm
 from excel_reader import runExcelReader
 from textParser import arrayMaker
 # Create your views here.
@@ -16,16 +16,35 @@ def add_journal_request(request):
         auth_lname = request.POST.get('auth_lname')
         countryorigin = request.POST.get('countryorigin')
         countrytravel = request.POST.get('countrytravel')
-        century = request.POST.get('century')
+        centuryOther = request.POST.get('other_box')
+        centuryOtherNum = request.POST.get('otherNum')
+        century18 = request.POST.get('18th')
+        century19 = request.POST.get('19th')
+        filetype = request.POST.get('filetype')
         file = request.FILES['file']
         fs = FileSystemStorage()
         name = fs.save(file.name, file)
         context['url'] = fs.url(name)
+
+        centuryarr = []
+        if centuryOther == "on":
+            centuryarr.append(centuryOtherNum)
+        if century18 == "on":
+            centuryarr.append(18)
+        if century19 == "on":
+            centuryarr.append(19)
         #if file type is exel do
+        journal_entry_data_array = []
+
+        if filetype.endswith(".xlsx"):
+            journal_entry_data_array = runExcelReader(name)
+        elif filetype.endswith(".txt"):
+            journal_entry_data_array = arrayMaker(name, centuryarr)
+        else:
+            return error, invalid file type
 
         #else make excel file by parsing textparser
 
-            file_path = "C:/Users/bridg/PycharmProjects/database-sisters/database_sisters/justPlayin/3.xlsx"
             journal_entry_data_array = runExcelReader(file_path, 0, 1, 2, 3, 4, 5)
             num_entries = len(journal_entry_data_array)
             #make everything upper case
@@ -63,13 +82,10 @@ def add_journal_request(request):
                 #SITE_ENTRY
                 #DATE_ENTRY
 
-            return redirect('templates/editingdatabase/success.html')
-        else:
-            form = DocumentForm()
+            # return redirect('templates/editingdatabase/success.html')
 
 
-    return render(request, "adding.html", context)
-    return render(request, 'adding.html', {'form': form})
+        return render(request, "adding.html", context)
 
 
 #close cursor

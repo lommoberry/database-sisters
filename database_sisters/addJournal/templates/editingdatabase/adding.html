@@ -36,7 +36,8 @@
 
 
     <div class="container">
-      <form id="JournalForm" method="POST">
+      <form id="JournalForm" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
 
          <div class="labels">
           <label id="journalTitle-label" for="journalTitle">* Journal Title</label></div>
@@ -62,8 +63,8 @@
         <div class="input-tab">
           <input type="checkbox" name="18th" value="18th">18th<br>
           <input type="checkbox" name="19th" value="19th">19th<br>
-          <input type="checkbox" name="other" value="other">Other
-            <input type="number" id="other" name="other" placeholder="example: 17"><br>
+          <input type="checkbox" name="other_box" value="other_box">Other
+            <input type="number" id="otherNum" name="otherNum" placeholder="example: 17"><br>
             <br>
         </div>
 
@@ -118,6 +119,10 @@
         </div>
 
       </form>
+         <p><a href="{% url 'home' %}">Return to home</a></p>
+        {% if url %}
+        <p>Uploaded file: <a href="{{ url }}">{{ url }}</a> </p>
+        {% endif %}
     </div>
 
 <footer>
