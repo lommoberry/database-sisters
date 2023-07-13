@@ -4,7 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal" />
+    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal">
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/editing.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/editing.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,9 +46,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database_sisters/addJournal" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal" />
       <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\justPlayin" />
@@ -252,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689212893275</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="altered adding Journal">
+      <created>1689213016013</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689213016013</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
