@@ -38,8 +38,8 @@ def runExcelReader(file, date, entry, locations, sketch, note, city):
 # filepath = "C:/Users/bridg/Downloads/Italian_Journey_Rome_Naples_clean.txt"
 # filepath = "C:/Users/bridg/Downloads/ItalianJourney1786-1788onlyentries(1).txt"
 # parse_text_file(filepath)
-#date, entry, locations, sketch, note, city
-    column_indexes = [date, entry, locations, sketch, note, city]
+# date, entry, locations, sketch, note, city
+    column_indexes = [int(date), int(entry), int(locations), int(sketch), int(note), int(city)]
     parsed_data = parse_excel_file(file, column_indexes)
 
 # Separate arrays for each row
@@ -147,7 +147,7 @@ def arrayMaker(file, century):
                         pass
 
         except:
-            text += line
+            text += str(line)
     file.close()
 
     entry_array.pop(0)
@@ -208,10 +208,12 @@ def adding(request):
         century19 = request.POST.get('19th')
         filetype = request.POST.get('filetype')
         file = request.FILES['file']
+        # print("requested file")
         fs = FileSystemStorage()
-        name = fs.save(file.name, file)
+        # print("did fs")
+        name = fs.save(str(file.name), file)
+        # print("did name")
         context['url'] = fs.url(name)
-        print(file.name)
 
         centuryarr = []
         if centuryOther == "on":
@@ -223,7 +225,7 @@ def adding(request):
         #if file type is exel do
         journal_entry_data_array = []
 
-        if filetype.endswith(".xlsx"):
+        if file.name.endswith(".xlsx"):
             sites_column = request.POST.get('sites_column')
             city_column = request.POST.get('city_column')
             notes_column = request.POST.get('notes_column')
@@ -233,7 +235,7 @@ def adding(request):
 
             journal_entry_data_array = runExcelReader(file, date_column, entry_column, sites_column, sketch_column,
                                                       notes_column, city_column)
-        elif filetype.endswith(".txt"):
+        elif file.name.endswith(".txt"):
             journal_entry_data_array = arrayMaker(file, centuryarr)
         else:
             return HttpResponse("incorrect file type")
