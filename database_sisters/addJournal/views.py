@@ -195,8 +195,8 @@ def arrayMaker(file, century):
 
 # Create your views here.
 def adding(request):
+    context = {}
     if request.method == 'POST':
-        context = {}
         journalTitle = request.POST.get('journalTitle')
         auth_fname = request.POST.get('auth_fname')
         auth_lname = request.POST.get('auth_lname')
@@ -211,6 +211,7 @@ def adding(request):
         fs = FileSystemStorage()
         name = fs.save(file.name, file)
         context['url'] = fs.url(name)
+        print(file.name)
 
         centuryarr = []
         if centuryOther == "on":
@@ -279,7 +280,7 @@ def adding(request):
             # return redirect('templates/addJournal/success.html')
 
 
-    return render(request, "adding.html")
+    return render(request, "adding.html", context)
 
 
 #close cursor

@@ -55,11 +55,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'database_sisters.urls'
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
+        'DIRS': [os.path.join(SETTINGS_PATH, 'templates',
+                 os.path.join(BASE_DIR, 'addJournal', 'templates', 'addJournal'),)
         ],
         'APP_DIRS': True,
         'OPTIONS': {
