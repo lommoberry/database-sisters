@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/adding.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/addingJournal/adding.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/editing.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/addingJournal/editing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/templates/editingdatabase/success.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/templates/addingJournal/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/database_sisters/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/database_sisters/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/database_sisters/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/database_sisters/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689218722564</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="altered adding Journal">
+      <created>1689219891449</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689219891449</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">

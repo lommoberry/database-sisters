@@ -8,7 +8,7 @@ from django.core.files.storage import FileSystemStorage
 from excel_reader import runExcelReader
 from textParser import arrayMaker
 # Create your views here.
-def add_journal_request(request):
+def adding(request):
     if request.method == 'POST':
         context = {}
         journalTitle = request.POST.get('journalTitle')
@@ -90,7 +90,7 @@ def add_journal_request(request):
         #     SITE_ENTRY
         #     DATE_ENTRY
 
-            # return redirect('templates/editingdatabase/success.html')
+            # return redirect('templates/addingJournal/success.html')
 
 
         return render(request, "adding.html", context)
