@@ -14,6 +14,7 @@ cur.executescript("""
     DROP TABLE IF EXISTS sketch;
     DROP TABLE IF EXISTS date;
     DROP TABLE IF EXISTS author;
+    DROP TABLE IF EXISTS date_entry;
     DROP TABLE IF EXISTS author_journal;
     DROP TABLE IF EXISTS journal_country;
     DROP TABLE IF EXISTS site_entry;
@@ -35,14 +36,10 @@ cur.executescript("""
         entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
         journal_id INTEGER NOT NULL,
         entry_text TEXT NOT NULL,
-        date_full INTEGER NOT NULL,
         sketch_id INTEGER,
         CONSTRAINT fk_journal
         FOREIGN KEY (journal_id)
         REFERENCES journal(journal_id),
-        CONSTRAINT fk_date
-        FOREIGN KEY (date_full)
-        REFERENCES date(date_full),
         CONSTRAINT fk_sketch
         FOREIGN KEY (sketch_id)
         REFERENCES sketch(sketch_id)
@@ -63,10 +60,7 @@ cur.executescript("""
     );
 
     CREATE TABLE date (
-        date_full INTEGER PRIMARY KEY,
-        month INTEGER NOT NULL,
-        day INTEGER NOT NULL,
-        year INTEGER NOT NULL
+        date_full TEXT PRIMARY KEY
     );
 
     CREATE TABLE author (
@@ -120,6 +114,19 @@ cur.executescript("""
             ON DELETE CASCADE 
             ON UPDATE NO ACTION
     );
+                  
+    CREATE TABLE date_entry (
+        entry_id INTEGER,
+        date_full TEXT,
+        FOREIGN KEY (entry_id) 
+        REFERENCES journal_entry(entry_id) 
+            ON DELETE CASCADE 
+            ON UPDATE NO ACTION, 
+        FOREIGN KEY (date_full) 
+        REFERENCES date(date_full) 
+            ON DELETE CASCADE 
+            ON UPDATE NO ACTION
+    );
 
 """)
 
@@ -150,16 +157,16 @@ cur.executescript("""
     VALUES (4, "United States");
 
     INSERT INTO journal_entry
-    VALUES (1, 1, "After talking over and rejecting many plans, we fixed on one eccentric enough, but which, from its romance, was very pleasing to us. In England we could not have put it in execution without sustaining continual insult and impertinence: the French are far more tolerant of the vagaries of their neighbours. We resolved to walk through France", 1, 1);
+    VALUES (1, 1, "After talking over and rejecting many plans, we fixed on one eccentric enough, but which, from its romance, was very pleasing to us. In England we could not have put it in execution without sustaining continual insult and impertinence: the French are far more tolerant of the vagaries of their neighbours. We resolved to walk through France", 1);
 
     INSERT INTO journal_entry
-    VALUES (2, 2, "Naples is a paradise; everyone lives in a state of intoxicated self-forgetfulness, myself included. I seem to be a completely different person whom I hardly recognise. Yesterday I thought to myself: Either you were mad before, or you are mad now.", 2, 2);
+    VALUES (2, 2, "Naples is a paradise; everyone lives in a state of intoxicated self-forgetfulness, myself included. I seem to be a completely different person whom I hardly recognise. Yesterday I thought to myself: Either you were mad before, or you are mad now.", 2);
 
     INSERT INTO journal_entry
-    VALUES (3, 3, "Wales is a country interesting in many respects, and deserving of more attention than it has hitherto met with. Though not very extensive, it is one of the most picturesque countries in the world, a country in which Nature displays herself in her wildest, boldest, and occasionally loveliest forms.", 3, 3);
+    VALUES (3, 3, "Wales is a country interesting in many respects, and deserving of more attention than it has hitherto met with. Though not very extensive, it is one of the most picturesque countries in the world, a country in which Nature displays herself in her wildest, boldest, and occasionally loveliest forms.", 3);
 
     INSERT INTO journal_entry
-    VALUES (4, 4, "An American cannot converse, but he can discuss, and his talk falls into a dissertation. He speaks to you as if he was addressing a meeting; and if he should chance to become warm in the discussion, he will say ""Gentlemen"" to the person with whom he is conversing.", 4, 4);
+    VALUES (4, 4, "An American cannot converse, but he can discuss, and his talk falls into a dissertation. He speaks to you as if he was addressing a meeting; and if he should chance to become warm in the discussion, he will say ""Gentlemen"" to the person with whom he is conversing.", 4);
 
     INSERT OR REPLACE INTO site 
     VALUES (1, "Augusta Raurica", 1);
@@ -186,16 +193,16 @@ cur.executescript("""
     VALUES (4, "0x539ebd758a243a48ce8f84b95b20bb");
 
     INSERT INTO date
-    VALUES (02171814, 2, 17, 1814);
+    VALUES ("1814-02-17");
 
     INSERT INTO date 
-    VALUES (08281786, 8, 28, 1786);
+    VALUES ("1786-08-28");
 
     INSERT INTO date
-    VALUES (04091862, 4, 9, 1862);
+    VALUES ("1862-04-09");
 
     INSERT INTO date
-    VALUES (10241831, 10, 24, 1831);
+    VALUES ("1831-10-24");
 
     INSERT INTO author
     VALUES (1, "Mary", "Shelley", 1);
@@ -244,6 +251,18 @@ cur.executescript("""
 
     INSERT INTO site_entry
     VALUES (4, 4);
+                  
+    INSERT INTO date_entry
+    VALUES (1, "1814-02-17");
+
+    INSERT INTO date_entry
+    VALUES (2, "1786-08-28");
+                  
+    INSERT INTO date_entry
+    VALUES (3, "1862-04-09");
+
+    INSERT INTO date_entry
+    VALUES (4, "1831-10-24");                          
 
 """)
 
