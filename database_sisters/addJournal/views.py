@@ -305,24 +305,24 @@ def editing(request):
     if date==None :
         if centuryOrJournal.isdigit():
             #is journal
-            obj=titleOrfirstname #is title in this case
+            objj=titleOrfirstname #is title in this case
         else:
             #is author
-            obj=titleOrfirstname + ", "+firstOrlastname #is first, lastname in this case
+            objj=titleOrfirstname + ", "+firstOrlastname #is first, lastname in this case
     else:
         #is journal entry
-        obj=date+", "+text
+        objj=date+", "+text
     if request.method == 'POST':
         with connection.cursor() as cursor:
             sql = ""
         return HttpResponse("edited successfully")
-    return render(request, "editing.html",{'obj': obj})
+    return render(request, "editing.html",{'objj': objj})
 
 #close cursor
 #close connection
 #but when?
 def delete(request):
-    obj=""
+
     titleOrfirstname=request.GET.get('titleOrfirstname')
     firstOrlastname=request.GET.get('firstOrlastname')
     centuryOrJournal=request.GET.get('centuryOrJournal')
@@ -341,7 +341,6 @@ def delete(request):
         obj=date+", "+text
 
     if request.method == 'POST':
-        print(obj)
         with connection.cursor() as cursor:
             sql = ""
         return HttpResponse("deleted successfully")
