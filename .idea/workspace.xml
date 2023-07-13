@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/search_engine/templates/search_engine/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/search_engine/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/search_engine/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689259166974</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="altered adding Journal">
+      <created>1689260832722</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1689260832722</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="UnknownFeatures">
