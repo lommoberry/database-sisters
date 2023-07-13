@@ -1,5 +1,14 @@
 {% include 'search_engine/nav.html' %}
 
+<style>
+    .popover {
+        max-width: 25%;
+    }
+    .popover-body {
+        font-size: medium;
+    }
+</style>
+
 <body class="vh-100">
     <div class="container-fluid p-3 text-center">
         {% if not results %}
@@ -8,12 +17,58 @@
 
         {% else %}
         <h1 class="text-center">Results</h1>
-        <ul class="list-group list-group-flush">
-
-            {% for row in results%}
-            <li class="list-group-item">{{ row }}</li>
-            {% endfor %}
-        </ul>
+        <table class="table table-light">
+            <thead>
+              <tr>
+                {% for col in cols %}
+                    <th scope="col">{{col}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+                {% for row in results%}
+                {% if text %}
+                <tr>
+                    {% for info in row|slice:"-1" %}
+                        <td>{{info}}</td>
+                    {% endfor %}
+                    <td>
+                        <a tabindex="0" class="btn btn-outline-secondary text-black" 
+                        role="button" 
+                        data-bs-toggle="popover" data-bs-placement="left"
+                        data-bs-trigger="focus"
+                        data-bs-title="Entry from {{row.4}}"
+                        data-bs-content="{{row|last}}">
+                        {{row|last|slice:":20"}}...</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr">
+                    {% for info in row %}
+                        <td>{{info}}</td>
+                    {% endfor %}
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+          </table>
         {% endif %}
     </div>
 </body>
+
+<script>
+    // function showText(id) {
+
+    //     const toast = document.getElementById('liveToast_' + id)
+
+    //     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast)
+    //     toastBootstrap.show()
+    // }
+
+    window.onload = () => {
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
+        const popover = new bootstrap.Popover('.popover-dismiss', {trigger: 'focus'});
+    }
+
+</script>
