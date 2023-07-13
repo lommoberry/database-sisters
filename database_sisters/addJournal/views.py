@@ -54,43 +54,44 @@ def add_journal_request(request):
         #else make excel file by parsing textparser
 
         num_entries = len(journal_entry_data_array)
+        # return HttpResponse("File uploaded successfully")
             #make everything upper case
         #parse journal txt create num entries and journal entries and site etc
-        with connection.cursor() as cursor:
-            # select exists(select * from table) returns 1 if exists
-            # execute
-            # result = cursor.fetchone()[0]
-            # if result ==1 etc
-            # DOES JOURNAL EXIST ALREADY
-            sql = "INSERT INTO journal (journalTitle, num_entries, century) VALUES (%s, %s)"
-            cursor.execute(sql, [journalTitle, num_entries, century])
-            # author
-            sql2 = "SELECT EXISTS(AUTH_FNAME, AUTH_LNAME FROM AUTHOR WHERE AUTH_FNAME = auth_fname AND AUTHLNAME = " \
-                   "auth_lname)"
-            cursor.execute(sql2, [auth_fname, auth_lname])
-            exists = cursor.fetchone()[0]
-            if exists == 0:  # DOESN'T EXIST
-                # CHECK IF COUNTRY ID EXISTS, ELSE MAKE NEW ONE
-                # make author, make author journal
-                sql3 = "INSERT INTO AUTHOR (AUTH_FNAME, AUTH_LNAME, COUNTRY_ID"
-            # MAKE AUTHOR-JOURNAL
-            sql4 = "INSERT INTO AUTHOR-JOURNAL(AUTH_ID, JOURNAL_ID) VALUES "
-            # country
-            # CHECK IF COUNTRY EXISTS, IF NOT MAKE ONE
-            # journal country
-            # MAKE JOURNAL-COUNTRY
-
-            # JOURNAL ENTRIES
-            # ROW BY ROW,
-            # DATE
-            # SKETCH
-            # SITE
-            # INSERT JOURNAL ID, ENTRY TEXT, DATE FULL
-            # SITE_ENTRY
-            # DATE_ENTRY
+        # with connection.cursor() as cursor:
+        #     # select exists(select * from table) returns 1 if exists
+        #     # execute
+        #     # result = cursor.fetchone()[0]
+        #     # if result ==1 etc
+        #     # DOES JOURNAL EXIST ALREADY
+        #     sql = "INSERT INTO journal (journalTitle, num_entries, century) VALUES (%s, %s)"
+        #     cursor.execute(sql, [journalTitle, num_entries, century])
+        #     # author
+        #     sql2 = "SELECT EXISTS(AUTH_FNAME, AUTH_LNAME FROM AUTHOR WHERE AUTH_FNAME = auth_fname AND AUTHLNAME = " \
+        #            "auth_lname)"
+        #     cursor.execute(sql2, [auth_fname, auth_lname])
+        #     exists = cursor.fetchone()[0]
+        # #     if exists == 0:  # DOESN'T EXIST
+        # #         # CHECK IF COUNTRY ID EXISTS, ELSE MAKE NEW ONE
+        # #         # make author, make author journal
+        # #         sql3 = "INSERT INTO AUTHOR (AUTH_FNAME, AUTH_LNAME, COUNTRY_ID"
+        # #     # MAKE AUTHOR-JOURNAL
+        # #     sql4 = "INSERT INTO AUTHOR-JOURNAL(AUTH_ID, JOURNAL_ID) VALUES "
+        #     country
+        #     CHECK IF COUNTRY EXISTS, IF NOT MAKE ONE
+        #     # journal country
+        #     # MAKE JOURNAL-COUNTRY
+        #
+        #     JOURNAL ENTRIES
+        #     ROW BY ROW,
+        #     DATE
+        #     SKETCH
+        #     SITE
+        #     INSERT JOURNAL ID, ENTRY TEXT, DATE FULL
+        #     SITE_ENTRY
+        #     DATE_ENTRY
 
             # return redirect('templates/editingdatabase/success.html')
-            return HttpResponse("File uploaded successfully")
+
 
         return render(request, "adding.html", context)
 
