@@ -76,26 +76,26 @@ def entry_parser_findSites(entry):
 
 
 
-def arrayMaker(file_path, century):
+def arrayMaker(file, century):
     entry_array =[]
     dates = []
     text = ""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        for line in file:
-            try:
-                match = parser.parse(line, fuzzy_with_tokens=True)
-                if match:
-                    for i in century:
-                        year = str(i-1)
-                        date= str(match[0].date())
-                        if date.startswith(year):
-                            entry_array.append(text.strip())
-                            text = ""
-                            dates.append(date)
-                            pass
+    # with open(file_path, 'r', encoding='utf-8') as file:
+    for line in file:
+        try:
+            match = parser.parse(line, fuzzy_with_tokens=True)
+            if match:
+                for i in century:
+                    year = str(i - 1)
+                    date = str(match[0].date())
+                    if date.startswith(year):
+                        entry_array.append(text.strip())
+                        text = ""
+                        dates.append(date)
+                        pass
 
-            except:
-                text += line
+        except:
+            text += line
     file.close()
 
     entry_array.pop(0)

@@ -6,8 +6,8 @@ import openpyxl
 # if txt, say its not guaranteed to be correct but it will try
 # will only do journals so has to have dates
 
-def parse_excel_file(file_path, column_indexes=None):
-    wb = openpyxl.load_workbook(file_path)  # Load the Excel file
+def parse_excel_file(file, column_indexes=None):
+    wb = openpyxl.load_workbook(file)  # Load the Excel file
     sheet = wb.active  # Select the active sheet (or specify a specific sheet name)
 
     data = []  # List to store the parsed data
@@ -27,13 +27,13 @@ def parse_excel_file(file_path, column_indexes=None):
 
     return data
 
-def runExcelReader(file_path, date, entry, locations, sketch, note, city):
+def runExcelReader(file, date, entry, locations, sketch, note, city):
 # filepath = "C:/Users/bridg/Downloads/Italian_Journey_Rome_Naples_clean.txt"
 # filepath = "C:/Users/bridg/Downloads/ItalianJourney1786-1788onlyentries(1).txt"
 # parse_text_file(filepath)
 #date, entry, locations, sketch, note, city
     column_indexes = [date, entry, locations, sketch, note, city]
-    parsed_data = parse_excel_file(file_path, column_indexes)
+    parsed_data = parse_excel_file(file, column_indexes)
 
 # Separate arrays for each row
     rows = parsed_data
