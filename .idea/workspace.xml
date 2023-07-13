@@ -4,10 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="made addJOurnals">
-      <change afterPath="$PROJECT_DIR$/get-pip.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_sisters/addJournal/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_sisters/addJournal/apps.py" afterDir="false" />
-    </list>
+    <list default="true" id="3b0ccf85-a71d-4d8d-bc47-ae96a14ab5fc" name="Changes" comment="altered adding Journal" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -31,9 +29,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="2" />
-  </component>
   <component name="ProjectId" id="2Rc8x7ApYi4O0SEmanRJfjwM543" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,9 +39,92 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database_sisters/addJournal" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal" />
+      <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\justPlayin" />
+      <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal\templates\editingdatabase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.blah">
+    <configuration name="blah" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="database-sisters" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_sisters/justPlayin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_sisters/justPlayin/blah.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="excel_reader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="database-sisters" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_sisters/justPlayin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal\excel_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="textParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="database-sisters" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_sisters/addJournal" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal\textParser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.blah" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,8 +163,200 @@
       <option name="project" value="LOCAL" />
       <updated>1688741654920</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="made addJOurnals">
+      <created>1688745803318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688745803318</updated>
+    </task>
+    <task id="LOCAL-00006" summary="made addJOurnals">
+      <created>1688745813994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688745813994</updated>
+    </task>
+    <task id="LOCAL-00007" summary="made addJOurnals">
+      <created>1688748350242</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688748350242</updated>
+    </task>
+    <task id="LOCAL-00008" summary="altered website adding.html">
+      <created>1688753030879</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688753030879</updated>
+    </task>
+    <task id="LOCAL-00009" summary="altered website adding.html">
+      <created>1688754672410</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688754672410</updated>
+    </task>
+    <task id="LOCAL-00010" summary="altered website adding.html">
+      <created>1688759556771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688759556771</updated>
+    </task>
+    <task id="LOCAL-00011" summary="altered website adding.html">
+      <created>1688781282919</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688781282919</updated>
+    </task>
+    <task id="LOCAL-00012" summary="altered website adding.html">
+      <created>1689007800447</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689007800447</updated>
+    </task>
+    <task id="LOCAL-00013" summary="altered website adding.html">
+      <created>1689025653194</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689025653194</updated>
+    </task>
+    <task id="LOCAL-00014" summary="altered adding Journal">
+      <created>1689179857120</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689179857120</updated>
+    </task>
+    <task id="LOCAL-00015" summary="altered adding Journal">
+      <created>1689193099644</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689193099644</updated>
+    </task>
+    <task id="LOCAL-00016" summary="altered adding Journal">
+      <created>1689195153941</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689195153941</updated>
+    </task>
+    <task id="LOCAL-00017" summary="altered adding Journal">
+      <created>1689212893275</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689212893275</updated>
+    </task>
+    <task id="LOCAL-00018" summary="altered adding Journal">
+      <created>1689213016013</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689213016013</updated>
+    </task>
+    <task id="LOCAL-00019" summary="altered adding Journal">
+      <created>1689213359768</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1689213359783</updated>
+    </task>
+    <task id="LOCAL-00020" summary="altered adding Journal">
+      <created>1689213468480</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689213468480</updated>
+    </task>
+    <task id="LOCAL-00021" summary="altered adding Journal">
+      <created>1689213604709</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689213604709</updated>
+    </task>
+    <task id="LOCAL-00022" summary="altered adding Journal">
+      <created>1689216982547</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689216982547</updated>
+    </task>
+    <task id="LOCAL-00023" summary="altered adding Journal">
+      <created>1689217952788</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1689217952788</updated>
+    </task>
+    <task id="LOCAL-00024" summary="altered adding Journal">
+      <created>1689218722564</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1689218722564</updated>
+    </task>
+    <task id="LOCAL-00025" summary="altered adding Journal">
+      <created>1689219891449</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689219891449</updated>
+    </task>
+    <task id="LOCAL-00026" summary="altered adding Journal">
+      <created>1689220807269</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1689220807269</updated>
+    </task>
+    <task id="LOCAL-00027" summary="altered adding Journal">
+      <created>1689221816644</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1689221816644</updated>
+    </task>
+    <task id="LOCAL-00028" summary="altered adding Journal">
+      <created>1689222376958</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1689222376958</updated>
+    </task>
+    <task id="LOCAL-00029" summary="altered adding Journal">
+      <created>1689223273736</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689223273736</updated>
+    </task>
+    <task id="LOCAL-00030" summary="altered adding Journal">
+      <created>1689259153727</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1689259153727</updated>
+    </task>
+    <task id="LOCAL-00031" summary="altered adding Journal">
+      <created>1689259166974</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1689259166974</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -104,6 +374,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="dkslfns;" />
     <MESSAGE value="made addJOurnals" />
-    <option name="LAST_COMMIT_MESSAGE" value="made addJOurnals" />
+    <MESSAGE value="altered website adding.html" />
+    <MESSAGE value="altered adding Journal" />
+    <option name="LAST_COMMIT_MESSAGE" value="altered adding Journal" />
   </component>
 </project>
