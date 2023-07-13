@@ -296,16 +296,53 @@ def adding(request):
     return render(request, "adding.html", context)
 
 def editing(request):
+    titleOrfirstname=request.GET.get('titleOrfirstname')
+    firstOrlastname=request.GET.get('firstOrlastname')
+    centuryOrJournal=request.GET.get('centuryOrJournal')
+
+    date=request.GET.get('date')
+    text=request.GET.get('text')
+    if date==None :
+        if centuryOrJournal.isdigit():
+            #is journal
+            obj=titleOrfirstname #is title in this case
+        else:
+            #is author
+            obj=titleOrfirstname + ", "+firstOrlastname #is first, lastname in this case
+    else:
+        #is journal entry
+        obj=date+", "+text
     if request.method == 'POST':
         with connection.cursor() as cursor:
             sql = ""
-    return render(request, "editing.html")
+        return HttpResponse("edited successfully")
+    return render(request, "editing.html",{'obj': obj})
 
 #close cursor
 #close connection
 #but when?
 def delete(request):
+    obj=""
+    titleOrfirstname=request.GET.get('titleOrfirstname')
+    firstOrlastname=request.GET.get('firstOrlastname')
+    centuryOrJournal=request.GET.get('centuryOrJournal')
+
+    date=request.GET.get('date')
+    text=request.GET.get('text')
+    if date==None :
+        if centuryOrJournal.isdigit():
+            #is journal
+            obj=titleOrfirstname #is title in this case
+        else:
+            #is author
+            obj=titleOrfirstname + ", "+firstOrlastname #is first, lastname in this case
+    else:
+        #is journal entry
+        obj=date+", "+text
+
     if request.method == 'POST':
+        print(obj)
         with connection.cursor() as cursor:
             sql = ""
-    return render(request, "delete.html")
+        return HttpResponse("deleted successfully")
+    return render(request, "delete.html",{'obj': obj})

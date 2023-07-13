@@ -45,6 +45,14 @@
                         data-bs-title="Entry from {{row.4}}"
                         data-bs-content="{{row|last}}">
                         {{row|last|slice:":20"}}...</a>
+                                      <td>
+                        <p><a href="{% url 'editing' %}?date={{ row.4 }}&text={{ row.5 }}">edit
+                        </a></p>
+                   </td>
+                    <td>
+                        <p><a href="{% url 'delete' %}?date={{ row.4 }}&text={{ row.5 }}">delete
+                        </a></p>
+                    </td>
 
                     </td>
                 </tr>
@@ -54,10 +62,19 @@
                     {% for info in row %}
                         <td>{{info}}</td>
                     {% endfor %}
-                    <td><p><a href="{% url 'editing' %}">edit</a></p></td>
-                    <td><p><a href="{% url 'delete' %}">delete</a></p></td>
-                </tr>
 
+
+                    <td>
+                        <p><a href="{% url 'editing' %}?titleOrfirstname={{ row.0 }}&firstOrlastname={{ row.1 }}&centuryOrJournal={{ row.3 }}">edit
+                        </a></p>
+                   </td>
+                    <td>
+                        <p><a href="{% url 'delete' %}?titleOrfirstname={{ row.0 }}&firstOrlastname={{ row.1 }}&centuryOrJournal={{ row.3 }}">delete
+                        </a></p>
+                    </td>
+
+
+                </tr>
 
                 {% endif %}
 
