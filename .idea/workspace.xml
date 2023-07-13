@@ -55,7 +55,7 @@
       <recent name="C:\Users\bridg\PycharmProjects\database-sisters\database_sisters\addJournal\templates\editingdatabase" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.excel_reader">
+  <component name="RunManager" selected="Python.textParser">
     <configuration name="blah" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="database-sisters" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,9 +121,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.textParser" />
         <item itemvalue="Python.excel_reader" />
         <item itemvalue="Python.blah" />
-        <item itemvalue="Python.textParser" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689193099644</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="altered adding Journal">
+      <created>1689195153941</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689195153941</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">

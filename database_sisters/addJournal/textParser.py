@@ -1,8 +1,9 @@
 # Bridget Kim xpt3bn
-import openpyxl
 import nltk
 from nltk import ne_chunk, pos_tag, word_tokenize
 import re
+import datefinder
+from dateutil import parser
 from datetime import datetime
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -53,7 +54,8 @@ def entry_parser_findSites(entry):
         string += locations[i].upper() + ", "
     return string
 
-def raw_date_cleaner(date_raw):
+def raw_date_cleaner(entry):
+    date_raw = entry.split('\n')[0]
     words = word_tokenize(date_raw)
     tagged_words = pos_tag(words)
     date = ''
@@ -73,109 +75,68 @@ def raw_date_cleaner(date_raw):
         return None
 
 
-#or whatever they lived through
-def parse_text_file(file_path):
-    try:
-        counter = 0
-        with open(file_path, 'r', encoding='utf-8') as file:
-            for line in file:
-                if extract_dates(line, yearstart):
-                    counter+=1
-                    print(line)
 
-        print(counter)
-                # print(line.strip())  # Print each line (remove leading/trailing whitespace)
-
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
-
-
-
-def extract_dates(text, yearstart):
-    # pattern = r"\d{1,2}, \b\d{4}"
-    pattern = r"[.,]\s" + str(yearstart) + r"\d{2}\b"
-    dates = re.findall(pattern, text)
-    if len(dates) != 0:
-        return True
-    return False
-
-
-def arrayMaker(file_path):
+def arrayMaker(file_path, century):
     entry_array =[]
-    dates_raw=[]
+    dates = []
+    text = ""
     with open(file_path, 'r', encoding='utf-8') as file:
-        text = file.read()
+        for line in file:
+            try:
+                match = parser.parse(line, fuzzy_with_tokens=True)
+                if match:
+                    for i in century:
+                        year = str(i-1)
+                        date= str(match[0].date())
+                        if date.startswith(year):
+                            entry_array.append(text.strip())
+                            text = ""
+                            dates.append(date)
+                            pass
+
+            except:
+                text += line
     file.close()
 
-    sentences = nltk.sent_tokenize(text)
-
-    # Process each sentence
-    current_entry = ""
-    for sentence in sentences:
-        # Tokenize words and perform named entity recognition (NER)
-        words = nltk.word_tokenize(sentence)
-        tagged_words = nltk.pos_tag(words)
-        entities = nltk.chunk.ne_chunk(tagged_words)
-
-        # Find date names from the named entities
-        dates = []
-        for entity in entities:
-            if isinstance(entity, nltk.tree.Tree) and entity.label() == 'DATE':
-                dates.append(' '.join([leaf[0] for leaf in entity.leaves()]))
-
-        # If a date is found, start a new journal entry
-        if dates:
-            # Add the current entry to the result if not empty
-            if current_entry:
-                entry_array.append(' '.join(current_entry).strip())
-
-            # Start a new entry with the date
-            current_entry = [f"{dates[0]} {sentence}"]
-        else:
-            # Append the sentence to the current entry
-            current_entry.append(sentence)
-
-    # Add the last entry to the result if not empty
-    if current_entry:
-        entry_array.append(' '.join(current_entry).strip())
-
-
+    entry_array.pop(0)
     num_rows = len(entry_array)
-    array = [[0] * 6 for _ in range(num_rows)]
+
+    array = [[''] * 6 for _ in range(num_rows)]
     #add in things
     for row in range(num_rows):
         entry = entry_array[row]
         for col in range(6):
-            if col==1:
+            if col==0:
                 #date
                 # print(row,col)
-                array[row][col] = raw_date_cleaner(dates_raw[row-1])
+                array[row][col] = dates[row]
                 pass
-            elif col==2:
+            elif col==1:
                 #entry
                 # print(row, col)
                 array[row][col] = entry
                 pass
-            elif col==3:
+            elif col==2:
                 #locations
                 # print(row, col)
                 array[row][col] = entry_parser_findSites(entry)
                 pass
-            elif col==4:
+            elif col==3:
                 #sketches
                 # print(row, col)
                 array[row][col] = None
                 pass
-            elif col==5:
+            elif col==4:
                 #notes
                 # print(row, col)
                 array[row][col] = entry_parser_findNotes(entry)
                 pass
-            elif col==6:
+            elif col==5:
                 #city
                 # print(row, col)
                 array[row][col] = entry_parser_findCity(entry)
                 pass
             else:
                 pass
+    return array
 
