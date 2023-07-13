@@ -1,18 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% load static %} 
+  
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% load bootstrap_icons %}
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     {% bootstrap_javascript %}
-
-    <link rel="stylesheet" href="{% static 'search_engine/style.css' %}">
 </head>
 <body>
     <nav class="navbar navbar-light bg-light p-3">
@@ -30,9 +28,48 @@
         </div>
         <div class="offcanvas-body">
           <div>
-            menu menu menu
+            <p><a href="{% url 'adding' %}">add journal</a></p>
           </div>
         </div>
       </div>
 </body>
-</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    -->
+<!--    {% load static %} -->
+<!--    {% load bootstrap5 %}-->
+<!--    {% bootstrap_css %}-->
+<!--    {% load bootstrap_icons %}-->
+<!--    -->
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--    {% bootstrap_javascript %}-->
+
+<!--    <link rel="stylesheet" href="{% static 'search_engine/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <nav class="navbar navbar-light bg-light p-3">-->
+<!--        <div class="container-fluid p-0 justify-content-start">-->
+<!--            <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">-->
+<!--                {% bs_icon 'list' %}-->
+<!--            </a>-->
+<!--            <a class="navbar-brand mb-0 h1 ps-3" href="/">University of Virginia Visual Resource Center</a>-->
+<!--        </div>-->
+<!--      </nav>-->
+<!--    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">-->
+<!--        <div class="offcanvas-header justify-content-start">-->
+<!--          <button type="button" class="btn text-reset" data-bs-dismiss="offcanvas" aria-label="Close">{% bs_icon 'list' %}</button>-->
+<!--          <h5 class="offcanvas-title ps-3" id="offcanvasMenuLabel">Menu</h5>-->
+<!--        </div>-->
+<!--        <div class="offcanvas-body">-->
+<!--          <div>-->
+<!--            menu menu menu-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--</body>-->
+
+<!--</html>-->
