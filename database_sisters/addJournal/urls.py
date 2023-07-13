@@ -5,9 +5,9 @@ from . import views
 # from database_sisters.search_engine import views
 
 urlpatterns = [
-    # path("results/", views.results, name="results")
-    # path("success/", views.success, name="success"),
-    path('adding/',views.adding, name="adding")
+    path('adding/',views.adding, name="adding"),
+    path('editing/',views.editing, name="editing"),
+    path('delete/',views.delete, name="delete")
 ]
 
 # Bridget Kim xpt3bn

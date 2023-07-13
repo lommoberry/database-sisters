@@ -24,14 +24,18 @@
                 {% for col in cols %}
                     <th scope="col">{{col}}</th>
                 {% endfor %}
+                  <th>Edit</th>
+                  <th>Delete</th>
               </tr>
             </thead>
             <tbody>
                 {% for row in results%}
+
                 {% if text %}
                 <tr>
                     {% for info in row|slice:"-1" %}
                         <td>{{info}}</td>
+
                     {% endfor %}
                     <td>
                         <a tabindex="0" class="btn btn-outline-secondary text-black" 
@@ -41,17 +45,26 @@
                         data-bs-title="Entry from {{row.4}}"
                         data-bs-content="{{row|last}}">
                         {{row|last|slice:":20"}}...</a>
+
                     </td>
                 </tr>
+
                 {% else %}
-                <tr">
+                <tr>
                     {% for info in row %}
                         <td>{{info}}</td>
                     {% endfor %}
+                    <td><p><a href="{% url 'editing' %}">edit</a></p></td>
+                    <td><p><a href="{% url 'delete' %}">delete</a></p></td>
                 </tr>
+
+
                 {% endif %}
+
                 {% endfor %}
+
             </tbody>
+
           </table>
         {% endif %}
     </div>
@@ -74,23 +87,4 @@
 
 </script>
 
-<!--{% include 'search_engine/nav.html' %}-->
-
-<!--<body class="vh-100">-->
-<!--    <div class="container-fluid p-3 text-center">-->
-<!--        {% if not results %}-->
-<!--        <h1>No Results found :(</h1>-->
-<!--        <a href="{% url 'home' %}">Return to home page</a>-->
-
-<!--        {% else %}-->
-<!--        <h1 class="text-center">Results</h1>-->
-<!--        <ul class="list-group list-group-flush">-->
-
-<!--            {% for row in results%}-->
-<!--            <li class="list-group-item">{{ row }}</li>-->
-<!--            {% endfor %}-->
-<!--        </ul>-->
-<!--        {% endif %}-->
-<!--    </div>-->
-<!--</body>-->
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+<link rel="stylesheet" href="../../static/style.css">
+
+
+</head>
+
+<body>
+<h1>EDIT JOURNAL</h1>
+<div class="logo">
+    <img src="https://logos-world.net/wp-content/uploads/2021/11/UVA-Logo.png" alt="Logo">
+  </div>
+<div class="container">
+<form id="EditForm" method="POST">
+
+    <div class="labels">
+        <label id="journalTitle-label" for="journalTitle">* Journal Title To Be Edited</label></div>
+    <div class="input-tab">
+        <input class="input-field" type="text" id="journalTitle" name="journalTitle"
+               placeholder="Enter Journal Title" required autofocus></div>
+
+        <div class="labels">
+          <label>* What are you editing<br>:</label></div>
+        <div class="input-tab">
+          <input type="checkbox" name="entry" value="on">journal entry<br>
+          <input type="checkbox" name="19th" value="on">journal title<br>
+          <input type="checkbox" name="other_box" value="on">Other
+            <input type="number" id="otherNum" name="otherNum" placeholder="example: 17"><br>
+            <br>
+        </div>
+
+</form>
+    <p><a href="{% url 'home' %}">Return to home</a></p>
+</div>
+
+
+</body>
+</html>

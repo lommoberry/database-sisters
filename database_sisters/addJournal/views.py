@@ -193,6 +193,7 @@ def arrayMaker(file, century):
     return array
 
 
+
 # Create your views here.
 def adding(request):
     context = {}
@@ -247,44 +248,64 @@ def adding(request):
             #make everything upper case
         #parse journal txt create num entries and journal entries and site etc
         # with connection.cursor() as cursor:
-        #     # select exists(select * from table) returns 1 if exists
+        #     sql1 = "select exists(select * where journalTitle == journalTitle)"
         #     # execute
-        #     # result = cursor.fetchone()[0]
-        #     # if result ==1 etc
+        #     result = cursor.fetchone()[0]
+        #     if result ==1:
+        #         #journal exists
+        #         return HttpResponse("Journal already exists")
         #     # DOES JOURNAL EXIST ALREADY
         #     sql = "INSERT INTO journal (journalTitle, num_entries, century) VALUES (%s, %s)"
-        #     cursor.execute(sql, [journalTitle, num_entries, century])
+        #     cursor.execute(sql, [journalTitle, num_entries, centuryarr])
         #     # author
-        #     sql2 = "SELECT EXISTS(AUTH_FNAME, AUTH_LNAME FROM AUTHOR WHERE AUTH_FNAME = auth_fname AND AUTHLNAME = " \
+        #     sql2 = "SELECT EXISTS(SELECT AUTH_FNAME, AUTH_LNAME FROM AUTHOR WHERE AUTH_FNAME = auth_fname AND " \
+        #            "AUTHLNAME = " \
         #            "auth_lname)"
         #     cursor.execute(sql2, [auth_fname, auth_lname])
         #     exists = cursor.fetchone()[0]
-        # #     if exists == 0:  # DOESN'T EXIST
+        #     if exists == 0:  # DOESN'T EXIST
+        #         sql3 = "SELECT EXISTS(SELECT COUNTRYID WHERE Countryname = country)"
+        #         cursor.execute(sql3, [countryorigin])
+        #         exists = cursor.fetchone()[0]
+        #         if exists == 0:
         # #         # CHECK IF COUNTRY ID EXISTS, ELSE MAKE NEW ONE
+        #             sql4 = "INSERT INTO COUNTRY(COUNTRYNAME) VALUES = (%s)"
+        #             cursor.execute(sql4, countryorigin)
         # #         # make author, make author journal
-        # #         sql3 = "INSERT INTO AUTHOR (AUTH_FNAME, AUTH_LNAME, COUNTRY_ID"
-        # #     # MAKE AUTHOR-JOURNAL
-        # #     sql4 = "INSERT INTO AUTHOR-JOURNAL(AUTH_ID, JOURNAL_ID) VALUES "
+        #             SELECT countryid
+        #             sql5 = "INSERT INTO AUTHOR (AUTH_FNAME, AUTH_LNAME, COUNTRY_ID"
+        #     # MAKE AUTHOR-JOURNAL
+        #     sql4 = "INSERT INTO AUTHOR-JOURNAL(AUTH_ID, JOURNAL_ID) VALUES "
         #     country
         #     CHECK IF COUNTRY EXISTS, IF NOT MAKE ONE
-        #     # journal country
-        #     # MAKE JOURNAL-COUNTRY
-        #
-        #     JOURNAL ENTRIES
-        #     ROW BY ROW,
-        #     DATE
-        #     SKETCH
-        #     SITE
-        #     INSERT JOURNAL ID, ENTRY TEXT, DATE FULL
-        #     SITE_ENTRY
-        #     DATE_ENTRY
+            # journal country
+            # MAKE JOURNAL-COUNTRY
+
+            # JOURNAL ENTRIES
+            # ROW BY ROW,
+            # DATE
+            # SKETCH
+            # SITE
+            # INSERT JOURNAL ID, ENTRY TEXT, DATE FULL
+            # SITE_ENTRY
+            # DATE_ENTRY
 
             # return redirect('templates/addJournal/success.html')
 
 
     return render(request, "adding.html", context)
 
+def editing(request):
+    if request.method == 'POST':
+        with connection.cursor() as cursor:
+            sql = ""
+    return render(request, "editing.html")
 
 #close cursor
 #close connection
 #but when?
+def delete(request):
+    if request.method == 'POST':
+        with connection.cursor() as cursor:
+            sql = ""
+    return render(request, "delete.html")
