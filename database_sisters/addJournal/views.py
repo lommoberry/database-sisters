@@ -279,7 +279,7 @@ def adding(request):
             # return redirect('templates/addJournal/success.html')
 
 
-        return render(request, "adding.html", context)
+    return render(request, "adding.html")
 
 
 #close cursor
