@@ -8,6 +8,7 @@ from django.core.files.storage import FileSystemStorage
 # Bridget Kim xpt3bn
 import re
 import openpyxl
+import string
 
 # check file type, if xlsx give option to select column numbers
 # if txt, say its not guaranteed to be correct but it will try
@@ -244,6 +245,92 @@ def adding(request):
         #else make excel file by parsing textparser
 
         num_entries = len(journal_entry_data_array)
+
+        with connection.cursor() as cursor:
+            
+            cursor.execute("""INSERT OR IGNORE INTO country (country_name) VALUES(%s)""", [countryorigin])
+            cursor.execute("""INSERT OR IGNORE INTO country (country_name) VALUES(%s)""", [countrytravel])
+
+
+            cursor.execute("""SELECT country_id FROM country WHERE country_name LIKE %s""", [countryorigin])
+
+            origincountryID = cursor.fetchone()
+            origincountryID = int(origincountryID[0])
+
+            cursor.execute("""SELECT country_id FROM country WHERE country_name LIKE %s""", [countrytravel])
+            countrytravelID = cursor.fetchone()
+            countrytravelID = int(countrytravelID[0])
+
+            authorSQL = """
+                        INSERT OR IGNORE INTO author (auth_fname, auth_lname, country_id) 
+                        VALUES(%s, %s, %s)
+                        """
+
+            cursor.execute(authorSQL, [auth_fname, auth_lname, origincountryID])
+
+            cursor.execute("""SELECT auth_id FROM author WHERE auth_fname=%s AND auth_lname=%s""", [auth_fname, auth_lname])
+            authorID = cursor.fetchone()
+            authorID = int(authorID[0])
+
+            journalSQL = """
+                        INSERT OR IGNORE into journal (num_entries, century, journal_title)
+                        VALUES(%s, %s, %s)
+                        """
+            
+            cursor.execute(journalSQL, [num_entries, centuryarr[0], journalTitle])
+
+            cursor.execute("""SELECT journal_id FROM journal WHERE journal_title=%s""", [journalTitle])
+            journalID = cursor.fetchone()
+            journalID = int(journalID[0])
+
+            cursor.execute("""INSERT OR IGNORE into author_journal VALUES(%s, %s)""", [authorID, journalID])
+            cursor.execute("""INSERT OR IGNORE into journal_country VALUES(%s, %s)""", [countrytravelID, journalID])
+
+            # date, entry, locations, sketch, note, city
+            for entry in journal_entry_data_array:
+                cursor.execute("""INSERT OR IGNORE INTO date VALUES (%s)""", [entry[0]])
+
+                
+                if entry[5]:
+                    cursor.execute("""INSERT OR IGNORE INTO site (site_name, country_id) VALUES(%s, %s)""", [string.capwords(entry[5]), countrytravelID])
+                    cursor.execute("""SELECT site_id FROM site where site_name=%s""", [string.capwords(entry[5])])
+                    site_id = cursor.fetchone()
+                    site_id = int(site_id[0])
+
+                else:
+                    cursor.execute("""INSERT OR IGNORE INTO site (site_name, country_id) VALUES(%s, %s)""", ["Unknown", countrytravelID])
+                    cursor.execute("""SELECT site_id FROM site where site_name=%s""", ["Unknown"])
+                    site_id = cursor.fetchone()
+                    site_id = int(site_id[0])
+
+                
+
+                if entry[3]:
+                    cursor.execute("""INSERT OR IGNORE INTO sketch (sketch) VALUES(%s)""", [entry[3]])
+                    cursor.execute("""SELECT sketch_id FROM sketch WHERE sketch=%s""", [entry[3]])
+
+                    sketch_id = cursor.fetchone()
+                    sketch_id = int(sketch_id[0])
+
+                if sketch_id:
+                    cursor.execute("""INSERT OR IGNORE INTO journal_entry (journal_id, entry_text, sketch_id) VALUES(%s, %s, %s)""", [journalID, entry[1].replace("_","").strip(), sketch_id])
+                    cursor.execute("""SELECT entry_id FROM journal_entry WHERE entry_text=%s""", [entry[1].replace("_","").strip()])
+                    entry_id = cursor.fetchone()
+                    entry_id = int(entry_id[0])
+
+                else: 
+                    cursor.execute("""INSERT OR IGNORE INTO journal_entry (journal_id, entry_text) VALUES(%s, %s)""", [journalID, entry[1].replace("_","").strip()])
+                    cursor.execute("""SELECT entry_id FROM journal_entry WHERE entry_text=%s""", [entry[1].replace("_","").strip()])
+                    entry_id = cursor.fetchone()
+                    entry_id = int(entry_id[0])
+
+                cursor.execute("""INSERT OR IGNORE INTO date_entry VALUES(%s, %s)""", [entry_id, entry[0]])
+                cursor.execute("""INSERT OR IGNORE INTO site_entry VALUES(%s, %s)""", [site_id, entry_id])
+                    
+
+
+        # return HttpResponse("File uploaded successfully")
+            #make everything upper case
         #parse journal txt create num entries and journal entries and site etc
         # with connection.cursor() as cursor:
         #     sql1 = "select exists(select * where journalTitle == journalTitle)"
@@ -291,8 +378,8 @@ def adding(request):
             # return redirect('templates/addJournal/success.html')
 
 
-    # return render(request, "adding.html", context)
-    return render(request, "success.html")
+    return render(request, "adding.html", context)
+    # return render(request, "success.html")
 
 def editing(request):
     titleOrfirstname=request.GET.get('titleOrfirstname')
@@ -435,3 +522,7 @@ def delete(request):
             except:
                 return HttpResponse("error deleting")
     return render(request, "delete.html",{'obj': obj})
+
+
+def success(request):
+    return HttpResponse("success!")

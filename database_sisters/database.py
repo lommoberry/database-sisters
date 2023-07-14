@@ -57,11 +57,11 @@ cur.executescript("""
 
     CREATE TABLE sketch (
         sketch_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        sketch BLOB
+        sketch TEXT
     );
 
     CREATE TABLE date (
-        date_full TEXT PRIMARY KEY
+        date_full TEXT PRIMARY KEY UNIQUE
     );
 
     CREATE TABLE author (
@@ -70,7 +70,7 @@ cur.executescript("""
         auth_lname TEXT,
         country_id INTEGER,
         CONSTRAINT fk_country,
-        FOREIGN KEY (country_id) 
+        FOREIGN KEY (country_id)
         REFERENCES country(country_id)
     );
 
