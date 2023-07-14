@@ -291,8 +291,8 @@ def adding(request):
             # return redirect('templates/addJournal/success.html')
 
 
-    # return render(request, "adding.html", context)
-    return render(request, "success.html")
+    return render(request, "adding.html", context)
+    # return render(request, "success.html")
 
 def editing(request):
     titleOrfirstname=request.GET.get('titleOrfirstname')
@@ -435,3 +435,7 @@ def delete(request):
             except:
                 return HttpResponse("error deleting")
     return render(request, "delete.html",{'obj': obj})
+
+
+def success(request):
+    return HttpResponse("success!")
