@@ -57,7 +57,7 @@ cur.executescript("""
 
     CREATE TABLE sketch (
         sketch_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        sketch BLOB
+        sketch TEXT
     );
 
     CREATE TABLE date (

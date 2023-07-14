@@ -4,6 +4,7 @@
 
 <body class="vh-100">
   <form action="{% url 'results' %}" method="GET" class="">
+    {% csrf_token %}
     <div class="container-fluid d-flex h-100 align-items-start gap-1 justify-content-around">
       <div class="p-3">
         <select class="form-select p-3 w-100" aria-label="Search selection" onchange="selectChange()" name="searchtype" id="searchtype">

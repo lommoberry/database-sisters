@@ -8,6 +8,7 @@ from django.core.files.storage import FileSystemStorage
 # Bridget Kim xpt3bn
 import re
 import openpyxl
+import string
 
 # check file type, if xlsx give option to select column numbers
 # if txt, say its not guaranteed to be correct but it will try
@@ -264,8 +265,6 @@ def adding(request):
                         INSERT OR IGNORE INTO author (auth_fname, auth_lname, country_id) 
                         VALUES(%s, %s, %s)
                         """
-            
-            print(auth_fname + " " + auth_lname + " " + str(origincountryID))
 
             cursor.execute(authorSQL, [auth_fname, auth_lname, origincountryID])
 
@@ -290,19 +289,40 @@ def adding(request):
             # date, entry, locations, sketch, note, city
             for entry in journal_entry_data_array:
                 cursor.execute("""INSERT OR IGNORE INTO date VALUES (%s)""", [entry[0]])
+
                 
-                cursor.execute("""INSERT OR IGNORE INTO site (site_name, country_id) VALUES(%s, %s)""", [entry[5], countrytravelID])
-                cursor.execute("""SELECT site_id FROM site where site_name=%s""", [entry[5]])
+                if entry[5]:
+                    cursor.execute("""INSERT OR IGNORE INTO site (site_name, country_id) VALUES(%s, %s)""", [string.capwords(entry[5]), countrytravelID])
+                    cursor.execute("""SELECT site_id FROM site where site_name=%s""", [string.capwords(entry[5])])
+                    site_id = cursor.fetchone()
+                    site_id = int(site_id[0])
 
-                site_id = cursor.fetchone()
-                site_id = int(site_id[0])
+                else:
+                    cursor.execute("""INSERT OR IGNORE INTO site (site_name, country_id) VALUES(%s, %s)""", ["Unknown", countrytravelID])
+                    cursor.execute("""SELECT site_id FROM site where site_name=%s""", ["Unknown"])
+                    site_id = cursor.fetchone()
+                    site_id = int(site_id[0])
 
-                print(entry[1].replace("\r","").replace("\n","\n").replace("'b'","").replace("r\\","").replace("*","").replace(" '","").replace("  "," ").replace("\n'","").strip())
+                
 
-                cursor.execute("""INSERT OR IGNORE INTO journal_entry (journal_id, entry_text, sketch_id) VALUES(%s, %s, %s)""", [journalID, entry[1].replace("\r","").replace("\n","\n").replace("'b'","").replace("r\\","").replace("*","").replace(" '","").replace("  "," ").replace("\n'","").strip(), 1])
-                cursor.execute("""SELECT entry_id FROM journal_entry WHERE entry_text=%s""", [entry[1].replace("\r","").replace("\n","\n").replace("'b'","").replace("r\\","").replace("*","").replace(" '","").replace("  "," ").replace("\n'","").strip()])
-                entry_id = cursor.fetchone()
-                entry_id = int(entry_id[0])
+                if entry[3]:
+                    cursor.execute("""INSERT OR IGNORE INTO sketch (sketch) VALUES(%s)""", [entry[3]])
+                    cursor.execute("""SELECT sketch_id FROM sketch WHERE sketch=%s""", [entry[3]])
+
+                    sketch_id = cursor.fetchone()
+                    sketch_id = int(sketch_id[0])
+
+                if sketch_id:
+                    cursor.execute("""INSERT OR IGNORE INTO journal_entry (journal_id, entry_text, sketch_id) VALUES(%s, %s, %s)""", [journalID, entry[1].replace("_","").strip(), sketch_id])
+                    cursor.execute("""SELECT entry_id FROM journal_entry WHERE entry_text=%s""", [entry[1].replace("_","").strip()])
+                    entry_id = cursor.fetchone()
+                    entry_id = int(entry_id[0])
+
+                else: 
+                    cursor.execute("""INSERT OR IGNORE INTO journal_entry (journal_id, entry_text) VALUES(%s, %s)""", [journalID, entry[1].replace("_","").strip()])
+                    cursor.execute("""SELECT entry_id FROM journal_entry WHERE entry_text=%s""", [entry[1].replace("_","").strip()])
+                    entry_id = cursor.fetchone()
+                    entry_id = int(entry_id[0])
 
                 cursor.execute("""INSERT OR IGNORE INTO date_entry VALUES(%s, %s)""", [entry_id, entry[0]])
                 cursor.execute("""INSERT OR IGNORE INTO site_entry VALUES(%s, %s)""", [site_id, entry_id])
