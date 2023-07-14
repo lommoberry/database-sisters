@@ -244,8 +244,6 @@ def adding(request):
         #else make excel file by parsing textparser
 
         num_entries = len(journal_entry_data_array)
-        # return HttpResponse("File uploaded successfully")
-            #make everything upper case
         #parse journal txt create num entries and journal entries and site etc
         # with connection.cursor() as cursor:
         #     sql1 = "select exists(select * where journalTitle == journalTitle)"
@@ -293,7 +291,8 @@ def adding(request):
             # return redirect('templates/addJournal/success.html')
 
 
-    return render(request, "adding.html", context)
+    # return render(request, "adding.html", context)
+    return render(request, "success.html")
 
 def editing(request):
     titleOrfirstname=request.GET.get('titleOrfirstname')
@@ -307,11 +306,53 @@ def editing(request):
         if centuryOrJournal.isdigit():
             #is journal
             objj=titleOrfirstname #is title in this case
-            return HttpResponse("function to be implemented")
+            # if request.method == 'POST':
+            #     # newdate = request.POST.get('newdate')
+            #     newtext = request.POST.get('newentry')
+            #     with connection.cursor() as cursor:
+            #         # try:
+            #         query = "SELECT JOURNAL_ID FROM JOURNAL WHERE JOURNAL_TITLE = %s"
+            #         var = [titleJournal]
+            #         cursor.execute(query, var)
+            #         journalID = cursor.fetchone()[0]
+            #         sql = "UPDATE JOURNAL_ENTRY SET ENTRY_TEXT = %s WHERE JOURNAL_ID = %s AND ENTRY_TEXT " \
+            #               "like %s"
+            #         variables = [newtext, journalID, text]
+            #         cursor.execute(sql, variables)
+            #         # sss = "SELECT ENTRY_ID FROM JOURNAL_ENTRY WHERE ENTRY_TEXT like %s"
+            #         # v = [newtext]
+            #         # cursor.execute(sss, v)
+            #         # entryID = cursor.fetchone()[0]
+            #         # s = "UPDATE DATE_ENTRY SET DATE_FULL = %s WHERE ENTRY_ID = %s AND DATE_FULL = %s"
+            #         cursor.connection.commit()
+            #         # cursor.execute(s,[newdate,entryID,date])
+            #         return HttpResponse("edited successfully")
+                # except:
         else:
             #is author
             objj=titleOrfirstname + ", "+firstOrlastname#is first, lastname in this case
-            return HttpResponse("function to be implemented")
+            # if request.method == 'POST':
+            #     # newdate = request.POST.get('newdate')
+            #     newtext = request.POST.get('newentry')
+            #     with connection.cursor() as cursor:
+            #         # try:
+            #         query = "SELECT JOURNAL_ID FROM JOURNAL WHERE JOURNAL_TITLE = %s"
+            #         var = [titleJournal]
+            #         cursor.execute(query, var)
+            #         journalID = cursor.fetchone()[0]
+            #         sql = "UPDATE JOURNAL_ENTRY SET ENTRY_TEXT = %s WHERE JOURNAL_ID = %s AND ENTRY_TEXT " \
+            #               "like %s"
+            #         variables = [newtext, journalID, text]
+            #         cursor.execute(sql, variables)
+            #         # sss = "SELECT ENTRY_ID FROM JOURNAL_ENTRY WHERE ENTRY_TEXT like %s"
+            #         # v = [newtext]
+            #         # cursor.execute(sss, v)
+            #         # entryID = cursor.fetchone()[0]
+            #         # s = "UPDATE DATE_ENTRY SET DATE_FULL = %s WHERE ENTRY_ID = %s AND DATE_FULL = %s"
+            #         cursor.connection.commit()
+            #         # cursor.execute(s,[newdate,entryID,date])
+            #         return HttpResponse("edited successfully")
+                # except:
     else:
         #is journal entry
         objj=date+", "+text
@@ -335,7 +376,7 @@ def editing(request):
                 # s = "UPDATE DATE_ENTRY SET DATE_FULL = %s WHERE ENTRY_ID = %s AND DATE_FULL = %s"
                 cursor.connection.commit()
                 # cursor.execute(s,[newdate,entryID,date])
-                return HttpResponse("edited successfully")
+                return render(request, "success.html")
             # except:
             #     return HttpResponse("editing failed")
     return render(request, "editing.html",{'objj': objj})
@@ -375,20 +416,20 @@ def delete(request):
                     variables = [titleOrfirstname,centuryOrJournal]
                     cursor.execute(sql, variables)
                     connection.commit()
-                    return HttpResponse("deleted successfully")
+                    return render(request, "success.html")
                 elif table_name == "author":
                     sql = "DELETE FROM author WHERE auth_fname = %s AND auth_lname = %s"
                     variables = [titleOrfirstname,firstOrlastname]
                     cursor.execute(sql, variables)
                     connection.commit()
-                    return HttpResponse("deleted successfully")
+                    return render(request, "success.html")
 
                 elif table_name == "journal_entry":
                     sql = "DELETE FROM journal_entry WHERE entry_text like %s"
                     variables = [text]
                     cursor.execute(sql, variables)
                     connection.commit()
-                    return HttpResponse("deleted successfully")
+                    return render(request, "success.html")
 
                 return HttpResponse("error deleting")
             except:
