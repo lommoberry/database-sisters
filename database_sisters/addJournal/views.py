@@ -302,6 +302,7 @@ def editing(request):
 
     date=request.GET.get('date')
     text=request.GET.get('text')
+    titleJournal=request.GET.get('title')
     if date==None :
         if centuryOrJournal.isdigit():
             #is journal
@@ -318,13 +319,20 @@ def editing(request):
         newdate = request.POST.get('newdate')
         newtext = request.POST.get('newentry')
         with connection.cursor() as cursor:
-            try:
-                sql = "UPDATE JOURNAL_ENTRY SET DATE_FULL = "+newdate+" AND SET ENTRY_TEXT = "+newtext+" WHERE DATE_FULL = "
-                + date + " AND ENTRY_TEXT LIKE " + text + ";"
-                cursor.execute(sql)
+            # try:
+                query = "SELECT JOURNAL_ID FROM JOURNAL WHERE JOURNAL_TITLE = %s"
+                var = [titleJournal]
+                cursor.execute(query, var)
+                journalID = cursor.fetchone()
+                sql = "UPDATE JOURNAL_ENTRY SET DATE_FULL = %s, ENTRY_TEXT = %s WHERE DATE_FULL = %s AND " \
+                      "JOURNAL_ID = %s%"
+                variables = [newdate, newtext, date, journalID]
+                cursor.execute(sql,variables)
                 cursor.connection.commit()
-            except:
+
                 return HttpResponse("edited successfully")
+            # except:
+            #     return HttpResponse("editing failed")
     return render(request, "editing.html",{'objj': objj})
 
 #close cursor
@@ -342,32 +350,42 @@ def delete(request):
         if centuryOrJournal.isdigit():
             #is journal
             obj=titleOrfirstname #is title in this case
-            table_name = "Journal"
-
+            table_name = "journal"
+            # print("journal")
         else:
             #is author
             obj=titleOrfirstname + ", "+firstOrlastname #is first, lastname in this case
-            table_name="Author"
+            table_name="author"
+            # print("author")
     else:
         #is journal entry
         obj=date+", "+text
-        table_name="Journal_entry"
-
+        table_name="journal_entry"
+        # print("journal_entry")
     if request.method == 'POST':
         with connection.cursor() as cursor:
             try:
-                sql = ""
                 if table_name == "journal":
-                    sql = "DELETE FROM journal WHERE journal_title = "+titleOrfirstname.upper()+" AND century = " + \
-                          centuryOrJournal.upper()+";"
+                    sql = "DELETE FROM journal WHERE journal_title = %s AND century = %s"
+                    variables = (titleOrfirstname,centuryOrJournal)
+                    cursor.execute(sql, variables)
+                    connection.commit()
+                    return HttpResponse("deleted successfully")
                 elif table_name == "author":
-                    sql = "DELETE FROM author WHERE auth_fname = "+titleOrfirstname.upper()+" AND auth_lname = " + \
-                          firstOrlastname.upper()+";"
+                    sql = "DELETE FROM author WHERE auth_fname = %s AND auth_lname = %s"
+                    variables = (titleOrfirstname,firstOrlastname)
+                    cursor.execute(sql, variables)
+                    connection.commit()
+                    return HttpResponse("deleted successfully")
+
                 elif table_name == "journal_entry":
-                    sql = "DELETE FROM journal_entry WHERE entry_text like " + text+"%;"
-                cursor.execute(sql)
-                cursor.connection.commit()
-                return HttpResponse("deleted successfully")
+                    sql = "DELETE FROM journal_entry WHERE entry_text like %s"
+                    variables = (text)
+                    cursor.execute(sql, variables)
+                    connection.commit()
+                    return HttpResponse("deleted successfully")
+
+                return HttpResponse("error deleting")
             except:
                 return HttpResponse("error deleting")
     return render(request, "delete.html",{'obj': obj})
