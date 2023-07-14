@@ -316,20 +316,25 @@ def editing(request):
         #is journal entry
         objj=date+", "+text
     if request.method == 'POST':
-        newdate = request.POST.get('newdate')
+        # newdate = request.POST.get('newdate')
         newtext = request.POST.get('newentry')
         with connection.cursor() as cursor:
             # try:
                 query = "SELECT JOURNAL_ID FROM JOURNAL WHERE JOURNAL_TITLE = %s"
                 var = [titleJournal]
                 cursor.execute(query, var)
-                journalID = cursor.fetchone()
-                sql = "UPDATE JOURNAL_ENTRY SET DATE_FULL = %s, ENTRY_TEXT = %s WHERE DATE_FULL = %s AND " \
-                      "JOURNAL_ID = %s%"
-                variables = [newdate, newtext, date, journalID]
+                journalID = cursor.fetchone()[0]
+                sql = "UPDATE JOURNAL_ENTRY SET ENTRY_TEXT = %s WHERE JOURNAL_ID = %s AND ENTRY_TEXT " \
+                      "like %s"
+                variables = [newtext, journalID, text]
                 cursor.execute(sql,variables)
+                # sss = "SELECT ENTRY_ID FROM JOURNAL_ENTRY WHERE ENTRY_TEXT like %s"
+                # v = [newtext]
+                # cursor.execute(sss, v)
+                # entryID = cursor.fetchone()[0]
+                # s = "UPDATE DATE_ENTRY SET DATE_FULL = %s WHERE ENTRY_ID = %s AND DATE_FULL = %s"
                 cursor.connection.commit()
-
+                # cursor.execute(s,[newdate,entryID,date])
                 return HttpResponse("edited successfully")
             # except:
             #     return HttpResponse("editing failed")
@@ -367,20 +372,20 @@ def delete(request):
             try:
                 if table_name == "journal":
                     sql = "DELETE FROM journal WHERE journal_title = %s AND century = %s"
-                    variables = (titleOrfirstname,centuryOrJournal)
+                    variables = [titleOrfirstname,centuryOrJournal]
                     cursor.execute(sql, variables)
                     connection.commit()
                     return HttpResponse("deleted successfully")
                 elif table_name == "author":
                     sql = "DELETE FROM author WHERE auth_fname = %s AND auth_lname = %s"
-                    variables = (titleOrfirstname,firstOrlastname)
+                    variables = [titleOrfirstname,firstOrlastname]
                     cursor.execute(sql, variables)
                     connection.commit()
                     return HttpResponse("deleted successfully")
 
                 elif table_name == "journal_entry":
                     sql = "DELETE FROM journal_entry WHERE entry_text like %s"
-                    variables = (text)
+                    variables = [text]
                     cursor.execute(sql, variables)
                     connection.commit()
                     return HttpResponse("deleted successfully")

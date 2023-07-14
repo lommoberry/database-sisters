@@ -126,7 +126,7 @@ cur.executescript("""
         FOREIGN KEY (date_full) 
         REFERENCES date(date_full) 
             ON DELETE CASCADE 
-            ON UPDATE NO ACTION
+            ON UPDATE CASCADE
     );
 
 """)
