@@ -242,8 +242,16 @@ def adding(request):
             return HttpResponse("incorrect file type")
 
         #else make excel file by parsing textparser
+        print(journalTitle) 
+        print(auth_fname) 
+        print(auth_lname)
+        print(countryorigin)
+        print(countrytravel)
+        print(centuryarr)
 
         num_entries = len(journal_entry_data_array)
+        # return HttpResponse("File uploaded successfully")
+            #make everything upper case
         #parse journal txt create num entries and journal entries and site etc
         # with connection.cursor() as cursor:
         #     sql1 = "select exists(select * where journalTitle == journalTitle)"
